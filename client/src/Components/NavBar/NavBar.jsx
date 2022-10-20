@@ -1,19 +1,21 @@
-import React  from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../redux/slices/userSlice/userSlice';
+import './nav.css';
 
 export default function NavBar() {
-    const user = useSelector((state) => state.user);
-    const navigate = useNavigate();
-  
-    const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
-    const logoutHandler = (e) =>{
-      e.preventDefault();
-      dispatch(logoutUser());
-      navigate('/');
-    }
+  const dispatch = useDispatch();
+
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    dispatch(logoutUser());
+    navigate('/');
+  };
+
   return (
     <nav className="nav">
       <i className="fas fa-bars" />
@@ -34,6 +36,12 @@ export default function NavBar() {
             </>
           )}
       </ul>
+      <form action="" className="search-bar">
+        <input type="search" name="search" pattern=".*\S.*" required />
+        <button className="search-btn" type="submit">
+          <span>Search</span>
+        </button>
+      </form>
     </nav>
 
   );

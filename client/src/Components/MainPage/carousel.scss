@@ -1,0 +1,51 @@
+img {
+    display: block;
+    max-width: 100%;
+  }
+  
+  .wrapper {
+    overflow: hidden;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-gap: 7px;
+    margin-top: 80px;
+    margin-right: 80px;
+    margin-left: 80px;
+    margin-bottom: 80px;
+  }
+  
+  .gallery {
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+  
+  .gallery__img {
+    scroll-snap-align: start;
+    margin-bottom: 8px;
+    min-height: 70vh;
+    object-fit: cover;
+  }
+  
+  .lil-nav {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  
+    a {
+      height: 200px;
+      display: flex;
+      margin-bottom: 8px;
+    }
+  }
+  
+  .lil-nav__img {
+    object-fit: cover;
+    // filter: saturate(0);
+    transition: 0.3s ease all;
+  
+    &:hover {
+      transform: scale(1.05);
+      filter: saturate(1);
+    }
+  }
