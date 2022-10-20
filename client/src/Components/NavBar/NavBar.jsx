@@ -8,6 +8,7 @@ export default function NavBar() {
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
 
+
   const dispatch = useDispatch();
 
   const logoutHandler = (e) => {
@@ -32,6 +33,7 @@ export default function NavBar() {
             <>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/">{`Hi,${user.login}`}</Link></li>
+              <li><Link to="/storage">Personal storage</Link></li>
               <li><Link to="/user/logout" onClick={(e) => logoutHandler(e)}>Logout</Link></li>
             </>
           )}

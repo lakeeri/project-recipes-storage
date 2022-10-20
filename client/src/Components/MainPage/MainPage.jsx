@@ -44,5 +44,6 @@ export default function MainPage() {
         <img className="gallery__img" id="image-8" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/weston-mackinnon-caUtk0DTiR0-unsplash.jpg" alt="Stuff" />
       </div>
     </div>
+
   );
 }
