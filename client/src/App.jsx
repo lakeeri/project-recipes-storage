@@ -12,6 +12,7 @@ import FavoriteRecipes from './Components/Cabinet/Favorite recipes/FavoriteRecip
 import CookedRecipes from './Components/Cabinet/Already cooked/CookedRecipes';
 import ShoppingList from './Components/Cabinet/Shopping list/ShoppingList';
 
+
 function App() {
   const dispatch = useDispatch();
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/storage/favorites" element={<FavoriteRecipes />} />
         <Route path="/storage/cooked" element={<CookedRecipes />} />
         <Route path="/storage/list" element={<ShoppingList />} />
+
       </Routes>
     </main>
   );
