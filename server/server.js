@@ -4,6 +4,7 @@ const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const userRouter = require('./routes/userRouter');
+const recipesRouter = require('./routes/recipesRouter');
 
 require('dotenv').config();
 
@@ -35,5 +36,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/user', userRouter);
+app.use('/api/recipes', recipesRouter);
 
 app.listen(PORT);

@@ -4,14 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { oldUser } from '../../redux/slices/userSlice/userSlice';
 
 export default function LogIn() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const dispatch = useDispatch();
-    const loginHandler = (event, inputs) => {
-      event.preventDefault();
-      dispatch(oldUser(inputs));
-      navigate('/');
-    };
+  const dispatch = useDispatch();
+  const loginHandler = (event, inputs) => {
+    event.preventDefault();
+    dispatch(oldUser(inputs));
+    navigate('/');
+  };
 
   return (
     <div className="registration">
