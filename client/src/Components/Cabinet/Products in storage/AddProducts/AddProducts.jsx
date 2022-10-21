@@ -5,19 +5,16 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { addProducts } from '../../../../redux/slices/storageSlice/storageSlice';
-import './AddProducts.css';
 import { getOneProduct } from '../../../../redux/slices/oneProductSlice/oneProductSlice';
 
 export default function AddProducts() {
   const user = useSelector((state) => state.user);
   const products = useSelector((state) => state.products);
   const oneProduct = useSelector((state) => state.oneProduct);
-  console.log('------', oneProduct);
   const dispatch = useDispatch();
 
   const addHandler = (e, input) => {
     e.preventDefault();
-    console.log('======', input);
     dispatch(addProducts({
       ...input, userid: user.id, name: oneProduct.name, unit: oneProduct.unit,
     }));
@@ -46,7 +43,7 @@ export default function AddProducts() {
           <Typography style={{ marginTop: '3rem' }} variant="h6" gutterBottom>
             {`${oneProduct.name} (${oneProduct.unit})`}
           </Typography>
-          <TextField name="weight" id="outlined-basic" label="количество" variant="outlined" />
+          <TextField name="weight" type="number" id="outlined-basic" label="Количество" variant="outlined" />
         </div>
         <div>
           <Button style={{ width: '130px', marginTop: '10px', marginLeft: '30px' }} variant="contained" type="submit">Добавить</Button>

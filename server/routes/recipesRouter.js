@@ -14,7 +14,7 @@ router.route('/')
     const recipes = await Recipe.findAll({
       where: {
         name: {
-          [Op.like]: `${input}%`,
+          [Op.like]: `%${input}%`,
         },
       },
     });
