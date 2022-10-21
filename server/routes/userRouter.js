@@ -5,7 +5,6 @@ const { User } = require('../db/models');
 const router = express.Router();
 
 router.post('/registration', async (req, res) => {
-  console.log(req.body.inputs);
   const { login, email, password } = req.body.inputs;
   if (login && email && password) {
     try {
