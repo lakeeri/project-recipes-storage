@@ -21,7 +21,6 @@ export const getRecipes = () => (dispatch) => {
 };
 
 export const filterRecipes = (input) => (dispatch) => {
-  console.log(input);
   axios.post('/api/recipes', { input })
     .then((res) => dispatch(setRecipes(res.data)));
 };
