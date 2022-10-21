@@ -6,6 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { store } from './redux/store';
 import App from './App';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASEURL;

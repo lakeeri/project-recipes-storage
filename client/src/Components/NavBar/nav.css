@@ -39,7 +39,7 @@ body {
 .search-bar,
 .search-bar input:focus,
 .search-bar input:valid  {
-	width: 100%;
+	width: 50%;
 }
 .search-bar input:focus,
 .search-bar input:not(:focus) + .search-btn:focus {
@@ -47,9 +47,11 @@ body {
 }
 .search-bar {
 	margin: auto;
-	padding: 1.5em;
-	justify-content: center;
+	/* padding: 1.5em; */
+	justify-content: flex-end;
 	max-width: 20em;
+	margin-right: 0px;
+	margin-top: 18px;
 }
 .search-bar input {
 	background: transparent;
@@ -154,3 +156,4 @@ body {
 		background: #f1f1f1;
 	}
 }
+

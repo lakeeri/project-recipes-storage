@@ -11,13 +11,14 @@ import StorageProducts from './Components/Cabinet/Products in storage/StoragePro
 import FavoriteRecipes from './Components/Cabinet/Favorite recipes/FavoriteRecipes';
 import CookedRecipes from './Components/Cabinet/Already cooked/CookedRecipes';
 import ShoppingList from './Components/Cabinet/Shopping list/ShoppingList';
-
+import { getRecipes } from './redux/slices/recipesSlice/recipesSlice';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(checkUser());
+    dispatch(getRecipes());
   }, []);
 
   return (
