@@ -5,6 +5,9 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const userRouter = require('./routes/userRouter');
 const recipesRouter = require('./routes/recipesRouter');
+const productsRouter = require('./routes/productsRouter');
+const storageRouter = require('./routes/storageRouter');
+const oneProductRouter = require('./routes/oneProductRouter');
 
 require('dotenv').config();
 
@@ -37,5 +40,8 @@ app.use((req, res, next) => {
 
 app.use('/api/user', userRouter);
 app.use('/api/recipes', recipesRouter);
+app.use('/api/products', productsRouter);
+app.use('/api/storage', storageRouter);
+app.use('/api/oneProduct', oneProductRouter);
 
 app.listen(PORT);

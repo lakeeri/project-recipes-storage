@@ -1,0 +1,4 @@
+.AddProducts {
+    display: flex;
+    justify-content: space-between;
+}
