@@ -1,40 +1,39 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { logoutUser } from '../../redux/slices/userSlice/userSlice';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+// import { logoutUser } from '../../redux/slices/userSlice/userSlice';
 import './nav.css';
+import Burger from './Burger';
 
 export default function NavBar() {
   const user = useSelector((state) => state.user);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
+  // const dispatch = useDispatch();
 
-  const dispatch = useDispatch();
-
-  const logoutHandler = (e) => {
-    e.preventDefault();
-    dispatch(logoutUser());
-    navigate('/');
-  };
+  // const logoutHandler = (e) => {
+  //   e.preventDefault();
+  //   dispatch(logoutUser());
+  //   navigate('/');
+  // };
 
   return (
     <nav className="nav">
       <i className="fas fa-bars" />
-      <div className="title">Choose your place</div>
+      <div className="title">C</div>
       <ul>
         {!user.id
           ? (
             <>
-              <li><Link to="/user/registration">Register</Link></li>
-              <li><Link to="/user/login">Login</Link></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/">Hi, guest</Link></li>
             </>
+
           )
           : (
             <>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/">{`Hi,${user.login}`}</Link></li>
-              <li><Link to="/storage">Personal storage</Link></li>
-              <li><Link to="/user/logout" onClick={(e) => logoutHandler(e)}>Logout</Link></li>
             </>
           )}
       </ul>
@@ -44,6 +43,7 @@ export default function NavBar() {
           <span>Search</span>
         </button>
       </form>
+      <Burger />
     </nav>
 
   );

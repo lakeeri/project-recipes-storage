@@ -1,0 +1,18 @@
+.btn-secondary{
+    margin-top: -30px;
+    color: rgb(252, 252, 252);
+    background-color: black;
+}
+
+.dropdown-menu.show {
+    display: block;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.bi-list {
+    margin-top: -35px;
+
+}
