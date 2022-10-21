@@ -4,6 +4,7 @@ import recipesSlice from './slices/recipesSlice/recipesSlice';
 import productsSlice from './slices/productsSlice/productsSlice';
 import storageSlice from './slices/storageSlice/storageSlice';
 import oneProductSlice from './slices/oneProductSlice/oneProductSlice';
+import oneRecipeSlice from './slices/oneRecipeSlice/oneRecipeSlice';
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     products: productsSlice,
     storage: storageSlice,
     oneProduct: oneProductSlice,
+    oneRecipe: oneRecipeSlice,
   },
 });
 
