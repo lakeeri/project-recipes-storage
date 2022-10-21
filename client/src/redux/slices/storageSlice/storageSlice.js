@@ -10,13 +10,16 @@ const storageSlice = createSlice({
     setStorage(state, action) {
       return action.payload;
     },
-    addInStorage(state, action) {
-      return [...state, action.payload];
+    // addInStorage(state, action) {
+    //   return [...state, action.payload];
+    // },
+    deleteInStorage(state, action) {
+      return state.filter((el) => (el.id !== action.payload));
     },
   },
 });
 
-export const { setStorage, addInStorage } = storageSlice.actions;
+export const { setStorage, deleteInStorage } = storageSlice.actions;
 export default storageSlice.reducer;
 
 export const getStorage = () => (dispatch) => {
@@ -25,8 +28,13 @@ export const getStorage = () => (dispatch) => {
 };
 
 export const addProducts = (input) => (dispatch) => {
-  console.log(input);
   axios.post('/api/storage', input)
-    .then((res) => dispatch(addInStorage(res.data)))
+    .then((res) => dispatch(setStorage(res.data)))
+    .catch(console.log);
+};
+
+export const deleteProducts = (id) => (dispatch) => {
+  axios.delete(`/api/storage/${id}`)
+    .then(() => dispatch(deleteInStorage(id)))
     .catch(console.log);
 };

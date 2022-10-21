@@ -16,7 +16,7 @@ export default function StorageProducts() {
   return (
     <div className="StorageProducts">
       <div>
-        {storage.map((el) => <ListProducts key={el.id} product={el} />)}
+        {storage && storage?.map((el) => <ListProducts key={el.id} product={el} />)}
       </div>
       <div>
         <AddProducts />
