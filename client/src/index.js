@@ -3,7 +3,7 @@ import axios from 'axios';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { store } from './redux/store';
+import store from './redux/store';
 import App from './App';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';

@@ -1,25 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-// import { logoutUser } from '../../redux/slices/userSlice/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import './nav.css';
+import { filterRecipes, getRecipes } from '../../redux/slices/recipesSlice/recipesSlice';
 import Burger from './Burger';
 
 export default function NavBar() {
   const user = useSelector((state) => state.user);
-  // const navigate = useNavigate();
+  const [input, setInput] = useState('');
+  const dispatch = useDispatch();
 
-  // const dispatch = useDispatch();
+  const inputHandler = (e) => {
+    e.preventDefault();
+    setInput(e.target.value);
+  };
 
-  // const logoutHandler = (e) => {
-  //   e.preventDefault();
-  //   dispatch(logoutUser());
-  //   navigate('/');
-  // };
+  useEffect(() => {
+    if (input.length) {
+      dispatch(filterRecipes(input));
+    } else {
+      dispatch(getRecipes());
+    }
+  }, [input]);
 
   return (
     <nav className="nav">
-      <i className="fas fa-bars" />
       <div className="title">C</div>
       <ul>
         {!user.id
@@ -38,8 +43,15 @@ export default function NavBar() {
           )}
       </ul>
       <form action="" className="search-bar">
-        <input type="search" name="search" pattern=".*\S.*" required />
-        <button className="search-btn" type="submit">
+        <input
+          onChange={inputHandler}
+          value={input}
+          type="text"
+          name="input"
+          pattern=".*\S.*"
+          required
+        />
+        <button className="search-btn" type="submit" onClick={(e) => inputHandler(e)}>
           <span>Search</span>
         </button>
       </form>
