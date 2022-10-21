@@ -118,7 +118,7 @@ module.exports = {
       {
         name: 'Растительное масло',
         weight: '100',
-        unit: 'г',
+        unit: 'мл',
         recipeid: '3',
       },
       {
