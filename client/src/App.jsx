@@ -6,14 +6,17 @@ import LogIn from './Components/LogIn/LogIn';
 import MainPage from './Components/MainPage/MainPage';
 import NavBar from './Components/NavBar/NavBar';
 import { checkUser } from './redux/slices/userSlice/userSlice';
+import { getRecipes } from './redux/slices/recipesSlice/recipesSlice';
+import { getProducts } from './redux/slices/productsSlice/productsSlice';
+import { getFavoriteProducts } from './redux/slices/favoriteProducts/favoriteProductsSlice';
 import CabinetPage from './Components/Cabinet/StoragePage';
 import StorageProducts from './Components/Cabinet/Products in storage/StorageProducts';
 import FavoriteRecipes from './Components/Cabinet/Favorite recipes/FavoriteRecipes';
 import CookedRecipes from './Components/Cabinet/Already cooked/CookedRecipes';
 import ShoppingList from './Components/Cabinet/Shopping list/ShoppingList';
-import { getRecipes } from './redux/slices/recipesSlice/recipesSlice';
-import { getProducts } from './redux/slices/productsSlice/productsSlice';
+
 import OneRecipePage from './Components/OneRecipePage/OneRecipePage';
+import { getStorage } from './redux/slices/storageSlice/storageSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +25,8 @@ function App() {
     dispatch(checkUser());
     dispatch(getRecipes());
     dispatch(getProducts());
+    dispatch(getFavoriteProducts());
+    dispatch(getStorage());
   }, []);
 
   return (

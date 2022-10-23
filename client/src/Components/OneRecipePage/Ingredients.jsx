@@ -4,7 +4,7 @@ import './ingredients.css';
 
 export default function Ingredients() {
   const oneRecipe = useSelector((state) => state.oneRecipe);
-  console.log(oneRecipe.Ingredients);
+  // console.log(oneRecipe.Ingredients);
 
   return (
     <div className="ingredients">

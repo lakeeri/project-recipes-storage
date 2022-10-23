@@ -22,7 +22,21 @@ router.route('/')
         include: { model: Recipe, include: { model: Ingredient } },
       },
     );
-    // console.log(favs);
+    res.json(favs);
+  })
+  .delete(async (req, res) => {
+    const { id } = req.body;
+    await Favourite.destroy({
+      where: {
+        recipeId: id,
+      },
+    });
+    const favs = await Favourite.findAll(
+      {
+        where: { userid: res.locals.user.id },
+        include: { model: Recipe, include: { model: Ingredient } },
+      },
+    );
     res.json(favs);
   });
 

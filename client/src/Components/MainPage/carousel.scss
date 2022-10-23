@@ -23,7 +23,7 @@ img {
   
   .gallery__img {
     scroll-snap-align: start;
-    margin-bottom: -107px;
+    margin-bottom: -50px;
     min-height: 70vh;
     object-fit: cover;
   }
@@ -51,11 +51,12 @@ img {
   }
 
   .recipe-box{
+    position:relative;
     background: #000;
     p{
-      position: relative;
-      top:-0.5em;
-      left:0.7em;
+      position: absolute;
+      top:17.5em;
+      left:1em;
       color:white;
       font-size: 45px;
       font-family: 'EB Garamond', serif;
@@ -66,10 +67,18 @@ img {
         opacity: 0.8;
       }
     i {
-      position:relative;
-      top:-22.5em;
-      left: 34em;
+      position:absolute;
+      top: 2em;
+      left: 41em;
       color:white;
+    }
+
+    fieldset {
+      position:absolute;
+      top: 6em;
+      left: 70em;
+      color:white;
+
     }
 
   }
