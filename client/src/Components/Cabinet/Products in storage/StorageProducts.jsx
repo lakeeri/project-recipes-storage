@@ -15,7 +15,8 @@ export default function StorageProducts() {
 
   return (
     <div className="StorageProducts">
-      <div>
+      <div className="list-all-products">
+        <p className="list-p">Список имеющихся продуктов:</p>
         {storage && storage?.map((el) => <ListProducts key={el.id} product={el} />)}
       </div>
       <div>

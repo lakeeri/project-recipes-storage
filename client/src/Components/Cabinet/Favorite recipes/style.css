@@ -1,0 +1,15 @@
+.fav-rec{
+    margin-top: 7%;
+    margin-left: 33%;
+}
+
+.fav-rec-card{
+    display: flex;
+    flex-wrap: wrap;
+    width: 550px;
+    height: 400px;
+}
+
+.spisok-fav {
+  margin-left: 10%;
+}

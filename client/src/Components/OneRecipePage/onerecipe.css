@@ -159,3 +159,16 @@
 .amount {
   margin-left: 10%;
 }
+
+.want-box {
+  margin-top: 20px;
+}
+
+.want-to-cook {
+  padding: 5px;
+}
+
+#horns{
+    height: 20px;
+    width: 20px;
+}

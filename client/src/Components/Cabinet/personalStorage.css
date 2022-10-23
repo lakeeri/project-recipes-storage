@@ -50,7 +50,18 @@
   }   */
 
 
-
+.bg-img {
+    background-image: url(https://www.farmaciaronzoni.com/wp-content/uploads/intolleranzealimentari-farmaciaronzoni02.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 10px;
+    height: 800px;
+}
 
   .container-cabinet {
     /* position: relative;
@@ -63,7 +74,7 @@
     grid-template-rows: 1fr 1fr;
     gap: 30px 10px;
     margin-top: 4%; 
-    margin-left: 20%;
+    margin-left: 45%;
     margin-right: 5%;
   }
   
@@ -110,6 +121,7 @@
     display: flex;
     justify-content: center;
     background-color: #fff;
+    border-radius: 15px;
     z-index: 1;
     align-items: flex-end;
     text-align: center;

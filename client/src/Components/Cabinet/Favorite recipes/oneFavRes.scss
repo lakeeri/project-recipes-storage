@@ -1,0 +1,52 @@
+.one-gallery {
+    display: flex;
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior:smooth;
+    // overflow: hidden;
+  }
+  
+  .one-gallery__img {
+    scroll-snap-align: start;
+    // margin-bottom: -50px;
+    // min-height: 70vh;
+    border-radius: 15px;
+    min-height: 300px;
+    min-width: 450px;
+    max-width: 450px;
+    max-height: 300px;
+    object-fit: cover;
+  }
+
+  .one-recipe-box{
+    position:relative;
+    background: #000;
+    // background-color: white;
+    p{
+      position: absolute;
+      top:17.5em;
+      left:1em;
+      color:white;
+      font-size: 45px;
+      font-family: 'EB Garamond', serif;
+      opacity: 0.9;
+      }
+     
+     img{
+        opacity: 0.8;
+      }
+    i {
+      position:absolute;
+      top: 2em;
+      left: 30em;
+      color:white;
+    }
+
+    // fieldset {
+    //   position:absolute;
+    //   top: 6em;
+    //   left: 70em;
+    //   color:white;
+
+    // }
+  }
