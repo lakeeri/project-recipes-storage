@@ -8,6 +8,8 @@ import ModalPage from '../ModalPage/ModalPage';
 import ClockIcon from './ClockIcons';
 import Ingredients from './Ingredients';
 import './onerecipe.css';
+import { updateFavoriteProducts } from '../../redux/slices/favoriteProducts/favoriteProductsSlice';
+import { getShoppingList } from '../../redux/slices/shoppingListSlice/shoppingListSlice';
 
 export default function OneRecipePage() {
   const textAnimation = {
@@ -39,14 +41,17 @@ export default function OneRecipePage() {
   const dispatch = useDispatch();
   const oneRecipe = useSelector((state) => state.oneRecipe);
   const user = useSelector((state) => state.user);
+  const shoppingList = useSelector((state) => state.shoppingList);
 
   useEffect(() => {
     dispatch(getOneRecipe(id));
+    dispatch(getShoppingList());
   }, []);
 
   const modalHandler = (e) => {
     e.preventDefault();
     dispatch(setModal(oneRecipe));
+    dispatch(updateFavoriteProducts(id));
     setTrigger((prev) => !prev);
   };
 
@@ -70,7 +75,7 @@ export default function OneRecipePage() {
          </div>
        </fieldset>
        )}
-      </div>
+        </div>
         {/* <div
         className="single-card__info"
       /> */}
@@ -99,8 +104,8 @@ export default function OneRecipePage() {
             <motion.div custom={4} variants={textAnimation} className="description__content" dangerouslySetInnerHTML={{ __html: oneRecipe.description }} />
           </div>
         </div>
-        <ModalPage setTrigger={setTrigger} trigger={trigger} />
-    </div>
+        <ModalPage setTrigger={setTrigger} trigger={trigger} shoppingList={shoppingList} />
+      </div>
     </motion.section>
   );
 }

@@ -15,9 +15,13 @@ module.exports = {
           key: 'id',
         },
       },
-      status: {
-        type: Sequelize.TEXT,
-        defaultValue: 'sometime',
+      pending: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
+      cooked: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       userid: {
         type: Sequelize.INTEGER,

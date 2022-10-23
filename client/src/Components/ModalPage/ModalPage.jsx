@@ -4,12 +4,14 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { setModal } from '../../redux/slices/modalSlice/modalSlice';
 import './modalStyle.css';
+import { addShoppingList } from '../../redux/slices/shoppingListSlice/shoppingListSlice';
 
-export default function ModalPage({ trigger }) {
+export default function ModalPage({ trigger, shoppingList }) {
   const [list, setList] = useState([]);
 
   const modal = useSelector((state) => state.modal);
   const storage = useSelector((state) => state.storage);
+  // const shoplist = useSelector((state) => state.list);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,6 +27,7 @@ export default function ModalPage({ trigger }) {
   // console.log(modal[0]?.weight?);
 
   const handleClose = () => {
+    dispatch(addShoppingList(list));
     dispatch(setModal(null));
     setList([]);
   };
@@ -48,7 +51,7 @@ export default function ModalPage({ trigger }) {
           Close
         </Button>
         <Button variant="primary" onClick={handleClose}>
-          Save Changes
+          В список покупок
         </Button>
       </Modal.Footer>
     </Modal>
