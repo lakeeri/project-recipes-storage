@@ -1,6 +1,6 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Storages', [
+    await queryInterface.bulkInsert('ShoppingLists', [
       {
         name: 'Нут',
         weight: '200',
@@ -8,7 +8,7 @@ module.exports = {
         userid: 1,
       },
       {
-        name: 'Лимонный сок',
+        name: 'Абрикосы',
         weight: '10',
         unit: 'г',
         userid: 1,
@@ -19,22 +19,10 @@ module.exports = {
         unit: 'г',
         userid: 1,
       },
-      {
-        name: 'Соль',
-        weight: '10',
-        unit: 'г',
-        userid: 1,
-      },
-      {
-        name: 'Зира',
-        weight: '10',
-        unit: 'г',
-        userid: 1,
-      },
     ], {});
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Storages', null, {});
+    await queryInterface.bulkDelete('ShoppingLists', null, {});
   },
 };
