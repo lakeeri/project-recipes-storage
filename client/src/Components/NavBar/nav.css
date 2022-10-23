@@ -157,3 +157,16 @@ body {
 	}
 }
 
+.logo {
+	padding-bottom: 38px;
+  }
+
+.info{
+	display: flex;
+	margin-bottom: 20%;
+}
+
+.home{
+	margin-left: 15px;
+	margin-right: 15px;
+}
