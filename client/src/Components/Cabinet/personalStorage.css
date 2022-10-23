@@ -1,0 +1,133 @@
+/* .container-cabinet{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px 10px;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 5%;
+} */
+
+/* .storage-link{
+    display: grid;
+    width: 250px;
+} */
+
+/* .storage-icons{
+    width: 200px;
+    height: 200px;
+} */
+
+/* .storage-text {
+   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center; 
+  background-color: #fff;
+  z-index: 1;
+  align-items: flex-end;
+  text-align: center; 
+   transition: 0.5s ease-in-out;
+}  */
+
+/* .storage-img {
+    height: 250px;
+    width: 250px;
+    border-radius: 15px;
+    transition: all 0.5s ease-in-out;
+} */
+
+/* .container-cabinet .storage-link:hover .storage-img {
+    transform: translate(-3.5rem, -3.5rem);
+  } */
+  
+  /* .container-cabinet .storage-link:hover .storage-text {
+    transform: translate(3.5rem, 3.5rem);
+  }   */
+
+
+
+
+  .container-cabinet {
+    /* position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px 10px;
+    margin-top: 4%; 
+    margin-left: 20%;
+    margin-right: 5%;
+  }
+  
+  .container-cabinet .box {
+    position: relative;
+    width: 18rem;
+    height: 18rem;
+    margin-bottom: 4%;
+  }
+  
+  .container-cabinet .box:hover .imgBox {
+    transform: translate(-2.5rem, -2.5rem);
+  }
+  
+  .container-cabinet .box:hover .content {
+    transform: translate(2.5rem, 2.5rem);
+  }
+  
+  .imgBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .imgBox img {
+    width: 18rem;
+    height: 18rem;
+    object-fit: cover;
+    resize: both;
+    border-radius: 15px;
+  }
+  
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    z-index: 1;
+    align-items: flex-end;
+    text-align: center;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .content h2 {
+    display: block;
+    font-size: 20px;
+    color: #111;
+    font-weight: 500;
+    line-height: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  .content span {
+    color: #555;
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+  }

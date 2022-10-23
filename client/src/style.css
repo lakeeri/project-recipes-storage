@@ -29,6 +29,7 @@
     /* gap: 2rem; */
     padding: 0 2rem;
     height: 80px;
+    /* position: fixed; */
   }
   
   .nav ul{
@@ -40,8 +41,8 @@
   }
   
   .nav i{
-    font-size: 30px;
-    color:rgb(43, 78, 34);
+    font-size: 45px;
+    color:#fff;
   }
   
   .nav a {
@@ -51,8 +52,8 @@
     margin-top: 50px;
   }
   
-  .nav li:hover {
-    background-color: rgb(73, 110, 55);
+  .nav li {
+    /* background-color: rgb(247, 247, 247); */
   }
 
   .registration{
@@ -60,7 +61,6 @@
     justify-content:center;
     padding: 5rem;
     margin: 1rem;
-   
   }
   .container {
     width:100%;
