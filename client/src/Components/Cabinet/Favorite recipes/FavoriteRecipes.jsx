@@ -5,7 +5,7 @@ import { getFavoriteProducts } from '../../../redux/slices/favoriteProducts/favo
 export default function FavoriteRecipes() {
   const favs = useSelector((state) => state.favorites);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(getFavoriteProducts());
   }, []);

@@ -16,6 +16,7 @@ export default function RightSide({ item }) {
         className="fa-regular fa-heart fa-2xl"
         onClick={() => dispatch(addFavoriteProducts(item.id))}
       />
+      {/* <FontAwesomeIcon icon="fa-regular fa-heart" onClick={() => dispatch(addFavoriteProducts(item.id))} /> */}
     </div>
 
   );

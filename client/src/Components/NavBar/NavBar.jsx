@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './nav.css';
+import { CgSmartHomeRefrigerator } from 'react-icons/cg';
 import { filterRecipes, getRecipes } from '../../redux/slices/recipesSlice/recipesSlice';
 import Burger from './Burger';
 
@@ -25,21 +26,31 @@ export default function NavBar() {
 
   return (
     <nav className="nav">
-      <div className="title">C</div>
+      <i className="logo">
+        <CgSmartHomeRefrigerator />
+      </i>
       <ul>
         {!user.id
           ? (
-            <>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/">Hi, guest</Link></li>
-            </>
+            <div className="info">
+              <div className="home">
+                <li><Link to="/">Home</Link></li>
+              </div>
+              <div className="person">
+                <li><Link to="/">Hi, guest</Link></li>
+              </div>
+            </div>
 
           )
           : (
-            <>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/">{`Hi,${user.login}`}</Link></li>
-            </>
+            <div className="info">
+              <div className="home">
+                <li><Link to="/">Home</Link></li>
+              </div>
+              <div className="person">
+                <li><Link to="/">{`Hi, ${user.login}`}</Link></li>
+              </div>
+            </div>
           )}
       </ul>
       <form action="" className="search-bar">
