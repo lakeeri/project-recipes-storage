@@ -1,14 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import Button from '@mui/material/Button';
+import { FiXSquare } from 'react-icons/fi';
 import { deleteProducts } from '../../../../redux/slices/storageSlice/storageSlice';
+import '../StorageProducts.css';
 
 export default function ListProducts({ product }) {
   const dispatch = useDispatch();
   return (
-    <div>
+    <div className="list-of-products">
+      <FiXSquare className="x-button" onClick={() => dispatch(deleteProducts(product.id))} />
+      {' '}
       {`${product.name} ${product.weight} ${product.unit}`}
-      <Button onClick={() => dispatch(deleteProducts(product.id))} style={{ background: '#90caf9' }}>Delete</Button>
     </div>
   );
 }

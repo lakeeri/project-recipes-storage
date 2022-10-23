@@ -62,15 +62,22 @@ export default function OneRecipePage() {
           <motion.img custom={2} variants={imgAnimation} className="single-card__image" src={oneRecipe.image} alt={oneRecipe.name} />
           {user.id
        && (
-       <fieldset>
-         <legend>Хочу приготовить</legend>
-         <div>
-           <input type="checkbox" id="horns" name="horns" onClick={(e) => modalHandler(e)} />
-           <label htmlFor="horns">Horns</label>
+       <motion.section
+         initial="hidden"
+         whileInView="visible"
+         viewport={{ amount: 0.2 }}
+         className="Features"
+       >
+         <div className="want-box">
+           <motion.h5 custom={3} variants={imgAnimation} className="want-to-cook">
+             Хочу приготовить
+             {' '}
+             <input type="checkbox" id="horns" name="horns" onClick={(e) => modalHandler(e)} />
+           </motion.h5>
          </div>
-       </fieldset>
+       </motion.section>
        )}
-      </div>
+        </div>
         {/* <div
         className="single-card__info"
       /> */}
@@ -100,7 +107,7 @@ export default function OneRecipePage() {
           </div>
         </div>
         <ModalPage setTrigger={setTrigger} trigger={trigger} />
-    </div>
+      </div>
     </motion.section>
   );
 }
