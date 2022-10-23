@@ -70,7 +70,7 @@ export default function OneRecipePage() {
          </div>
        </fieldset>
        )}
-      </div>
+        </div>
         {/* <div
         className="single-card__info"
       /> */}
@@ -100,7 +100,7 @@ export default function OneRecipePage() {
           </div>
         </div>
         <ModalPage setTrigger={setTrigger} trigger={trigger} />
-    </div>
+      </div>
     </motion.section>
   );
 }

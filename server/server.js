@@ -9,6 +9,7 @@ const productsRouter = require('./routes/productsRouter');
 const storageRouter = require('./routes/storageRouter');
 const oneProductRouter = require('./routes/oneProductRouter');
 const favoriteProductsRouter = require('./routes/favoriteProductsRouter');
+const shoppingListRouter = require('./routes/shoppingListRouter');
 
 require('dotenv').config();
 
@@ -45,5 +46,6 @@ app.use('/api/products', productsRouter);
 app.use('/api/storage', storageRouter);
 app.use('/api/oneProduct', oneProductRouter);
 app.use('/api/favoriteProducts', favoriteProductsRouter);
+app.use('/api/shoppingList', shoppingListRouter);
 
 app.listen(PORT);

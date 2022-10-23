@@ -10,9 +10,6 @@ const storageSlice = createSlice({
     setStorage(state, action) {
       return action.payload;
     },
-    // addInStorage(state, action) {
-    //   return [...state, action.payload];
-    // },
     deleteInStorage(state, action) {
       return state.filter((el) => (el.id !== action.payload));
     },
@@ -29,6 +26,12 @@ export const getStorage = () => (dispatch) => {
 
 export const addProducts = (input) => (dispatch) => {
   axios.post('/api/storage', input)
+    .then((res) => dispatch(setStorage(res.data)))
+    .catch(console.log);
+};
+
+export const addProductsList = (input) => (dispatch) => {
+  axios.post('/api/storage/list', input)
     .then((res) => dispatch(setStorage(res.data)))
     .catch(console.log);
 };
