@@ -27,8 +27,8 @@ function App() {
     dispatch(getRecipes());
     dispatch(getProducts());
     if (user.id) {
-      dispatch(getFavoriteProducts());
       dispatch(getStorage());
+      dispatch(getFavoriteProducts());
     }
   }, []);
 

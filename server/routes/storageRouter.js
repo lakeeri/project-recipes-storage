@@ -25,6 +25,24 @@ router.post('/', async (req, res) => {
   return res.json(products);
 });
 
+router.post('/list', async (req, res) => {
+  const arr = req.body;
+  arr.forEach(async (item) => {
+    const {
+      name, weight, unit, userid,
+    } = item;
+    const [newProduct, created] = await Storage.findOrCreate({
+      where: { name, userid: res.locals.user.id },
+      defaults: { weight, unit, userid },
+    });
+    if (!created) {
+      if (weight) {
+        await Storage.update({ weight: parseInt(weight, 10) + newProduct.weight }, { where: { name } });
+      }
+    }
+  });
+});
+
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   await Storage.destroy({ where: { id } });

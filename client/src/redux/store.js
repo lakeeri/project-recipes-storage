@@ -7,6 +7,8 @@ import oneProductSlice from './slices/oneProductSlice/oneProductSlice';
 import oneRecipeSlice from './slices/oneRecipeSlice/oneRecipeSlice';
 import favoriteProductsSlice from './slices/favoriteProducts/favoriteProductsSlice';
 import modalSlice from './slices/modalSlice/modalSlice';
+import shoppingListSlice from './slices/shoppingList/shoppingListSlice';
+import shoppingListSlice from './slices/shoppingListSlice/shoppingListSlice';
 
 const store = configureStore({
   reducer: {
@@ -18,6 +20,7 @@ const store = configureStore({
     oneRecipe: oneRecipeSlice,
     favorites: favoriteProductsSlice,
     modal: modalSlice,
+    shoppingList: shoppingListSlice,
   },
 });
 
