@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { addFavoriteProducts } from '../../redux/slices/favoriteProducts/favoriteProductsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addFavoriteProducts, deleteFavoriteProducts } from '../../redux/slices/favoriteProducts/favoriteProductsSlice';
 
 export default function RightSide({ item }) {
+  const user = useSelector((state) => state.user);
+  const favs = useSelector((state) => state.favorites);
   const dispatch = useDispatch();
   return (
 
@@ -12,12 +14,22 @@ export default function RightSide({ item }) {
         <img className="gallery__img" id={`image-${item.id}`} src={item.image} alt={item.name} />
         <p>{item.name}</p>
       </Link>
-      <i
-        className="fa-regular fa-heart fa-2xl"
-        onClick={() => dispatch(addFavoriteProducts(item.id))}
-      />
-      {/* <FontAwesomeIcon icon="fa-regular fa-heart" onClick={() => dispatch(addFavoriteProducts(item.id))} /> */}
+      {/* */}
+      {user.id
+      && (
+        favs.map((el) => el.recipeId).includes(item.id)
+          ? (
+            <i
+              className="fa-solid fa-heart fa-2xl"
+              onClick={() => dispatch(deleteFavoriteProducts(item.id))}
+            />
+          )
+          : (
+            <i
+              className="fa-regular fa-heart fa-2xl"
+              onClick={() => dispatch(addFavoriteProducts(item.id))}
+            />
+          ))}
     </div>
-
   );
 }

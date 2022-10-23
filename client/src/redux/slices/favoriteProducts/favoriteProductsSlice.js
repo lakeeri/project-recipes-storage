@@ -25,3 +25,8 @@ export const addFavoriteProducts = (id) => (dispatch) => {
   axios.post('/api/favoriteProducts', { id })
     .then((res) => dispatch(setFavoriteProducts(res.data)));
 };
+
+export const deleteFavoriteProducts = (id) => (dispatch) => {
+  axios.delete('/api/favoriteProducts', { data: { id } })
+    .then((res) => dispatch(setFavoriteProducts(res.data)));
+};
