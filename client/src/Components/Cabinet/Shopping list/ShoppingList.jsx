@@ -7,7 +7,6 @@ import { addProductsList, deleteProductsList } from '../../../redux/slices/stora
 
 export default function ShoppingList() {
   const shoppingList = useSelector((state) => state.shoppingList);
-  // const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const addHandler = (e, input) => {
