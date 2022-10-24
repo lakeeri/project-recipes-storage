@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Button from '@mui/material/Button';
-import { getShoppingList } from '../../../redux/slices/shoppingList/shoppingListSlice';
+import { getShoppingList } from '../../../redux/slices/shoppingListSlice/shoppingListSlice';
 import ShoppingListItem from './ShoppingListItem';
-import { addProductsList } from '../../../redux/slices/storageSlice/storageSlice';
+import { addProductsList, deleteProductsList } from '../../../redux/slices/storageSlice/storageSlice';
 
 export default function ShoppingList() {
   const shoppingList = useSelector((state) => state.shoppingList);
@@ -12,7 +12,6 @@ export default function ShoppingList() {
 
   const addHandler = (e, input) => {
     e.preventDefault();
-    console.log(input);
     dispatch(addProductsList((input)));
   };
 
@@ -21,13 +20,15 @@ export default function ShoppingList() {
   }, []);
 
   return (
-    <form onSubmit={(e) => addHandler(e, shoppingList)}>
+    <>
       <div>
         {shoppingList && shoppingList?.map((el) => <ShoppingListItem key={el.id} shoppinglist={el} />)}
       </div>
-      <div>
-        <Button style={{ width: '130px', marginTop: '10px', marginLeft: '30px' }} variant="contained" type="submit">Добавить</Button>
-      </div>
-    </form>
+      <form onSubmit={(e) => addHandler(e, shoppingList)}>
+        <div>
+          <Button onClick={() => dispatch(deleteProductsList(shoppingList))} style={{ width: '130px', marginTop: '10px', marginLeft: '30px' }} variant="contained" type="submit">Добавить</Button>
+        </div>
+      </form>
+    </>
   );
 }

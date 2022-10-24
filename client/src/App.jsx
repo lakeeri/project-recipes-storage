@@ -26,10 +26,8 @@ function App() {
     dispatch(checkUser());
     dispatch(getRecipes());
     dispatch(getProducts());
-    if (user.id) {
-      dispatch(getStorage());
-      dispatch(getFavoriteProducts());
-    }
+    dispatch(getStorage());
+    dispatch(getFavoriteProducts());
   }, []);
 
   return (

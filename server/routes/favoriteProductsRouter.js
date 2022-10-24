@@ -5,13 +5,18 @@ const { Favourite, Recipe, Ingredient } = require('../db/models');
 
 router.route('/')
   .get(async (req, res) => {
-    const products = await Favourite.findAll(
-      {
-        where: { userid: res.locals.user.id },
-        include: { model: Recipe, include: { model: Ingredient } },
-      },
-    );
-    res.json(products);
+    try {
+      const products = await Favourite.findAll(
+        {
+          where: { userid: res.locals.user.id },
+          include: { model: Recipe, include: { model: Ingredient } },
+        },
+      );
+      res.json(products);
+    } catch (e) {
+      console.log(e);
+      return res.sendStatus(500);
+    }
   })
   .post(async (req, res) => {
     const { id } = req.body;

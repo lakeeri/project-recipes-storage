@@ -7,12 +7,17 @@ const {
 
 router.route('/')
   .get(async (req, res) => {
-    const list = await ShoppingList.findAll(
-      {
-        where: { userid: res.locals.user.id },
-      },
-    );
-    res.json(list);
+    try {
+      const list = await ShoppingList.findAll(
+        {
+          where: { userid: res.locals.user.id },
+        },
+      );
+      res.json(list);
+    } catch (e) {
+      console.log(e);
+      res.sendStatus(500);
+    }
   })
   .post(async (req, res) => {
     const list = req.body.value;
@@ -38,20 +43,11 @@ router.route('/')
     );
     res.json(final);
   });
-//   .delete(async (req, res) => {
-//     const { id } = req.body;
-//     await Favourite.destroy({
-//       where: {
-//         recipeId: id,
-//       },
-//     });
-//     const favs = await Favourite.findAll(
-//       {
-//         where: { userid: res.locals.user.id },
-//         include: { model: Recipe, include: { model: Ingredient } },
-//       },
-//     );
-//     res.json(favs);
-//   });
+
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  await ShoppingList.destroy({ where: { id } });
+  res.sendStatus(200);
+});
 
 module.exports = router;
