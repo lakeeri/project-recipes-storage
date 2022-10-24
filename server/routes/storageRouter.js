@@ -4,8 +4,13 @@ const router = express.Router();
 const { Storage } = require('../db/models');
 
 router.get('/', async (req, res) => {
-  const products = await Storage.findAll({ where: { userid: res.locals.user.id }, order: [['id', 'DESC']] });
-  res.json(products);
+  try {
+    const products = await Storage.findAll({ where: { userid: res.locals.user.id }, order: [['id', 'DESC']] });
+    res.json(products);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
 });
 
 router.post('/', async (req, res) => {
