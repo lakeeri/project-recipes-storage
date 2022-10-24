@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { getShoppingList } from '../../../redux/slices/shoppingListSlice/shoppingListSlice';
 import ShoppingListItem from './ShoppingListItem';
 import { addProductsList, deleteProductsList } from '../../../redux/slices/storageSlice/storageSlice';
+import './shop.css';
 
 export default function ShoppingList() {
   const shoppingList = useSelector((state) => state.shoppingList);
@@ -20,7 +21,8 @@ export default function ShoppingList() {
 
   return (
     <>
-      <div>
+      <h2>Ваша корзина</h2>
+      <div className="shop-list">
         {shoppingList && shoppingList?.map((el) => <ShoppingListItem key={el.id} shoppinglist={el} />)}
       </div>
       <form onSubmit={(e) => addHandler(e, shoppingList)}>

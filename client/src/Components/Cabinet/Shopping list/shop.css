@@ -1,0 +1,24 @@
+.shop-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 45%;
+}
+
+.shop-item{
+    display: flex;
+    margin-right: 5%;
+    width: 220px;
+}
+
+.cart-button[type="submit"] {
+  width: 35px;
+  height: 35px;
+  color: green;
+  cursor: pointer;
+}
+
+.btn-cart {
+  background-color: white;
+}
+
