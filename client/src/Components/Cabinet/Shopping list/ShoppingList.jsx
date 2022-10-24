@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Button from '@mui/material/Button';
-import { getShoppingList } from '../../../redux/slices/shoppingList/shoppingListSlice';
+import { getShoppingList } from '../../../redux/slices/shoppingListSlice/shoppingListSlice';
 import ShoppingListItem from './ShoppingListItem';
 import { addProductsList } from '../../../redux/slices/storageSlice/storageSlice';
 

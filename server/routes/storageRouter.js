@@ -42,7 +42,7 @@ router.post('/list', async (req, res) => {
     });
     if (!created) {
       if (weight) {
-        await Storage.update({ weight: parseInt(weight, 10) + newProduct.weight }, { where: { name } });
+        await Storage.update({ weight: parseInt(weight, 10) + newProduct.weight }, { where: { name, userid: res.locals.user.id } });
       }
     }
   });

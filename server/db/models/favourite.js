@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Favourite.init({
     recipeId: DataTypes.INTEGER,
+    fav: DataTypes.BOOLEAN,
     pending: DataTypes.BOOLEAN,
     cooked: DataTypes.BOOLEAN,
     userid: DataTypes.INTEGER,

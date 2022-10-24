@@ -17,6 +17,7 @@ import ShoppingList from './Components/Cabinet/Shopping list/ShoppingList';
 
 import OneRecipePage from './Components/OneRecipePage/OneRecipePage';
 import { getStorage } from './redux/slices/storageSlice/storageSlice';
+import { getPendingRecipes } from './redux/slices/pendingRecipeSlice/pendingRecipeSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function App() {
     dispatch(getProducts());
     dispatch(getStorage());
     dispatch(getFavoriteProducts());
+    dispatch(getPendingRecipes());
   }, []);
 
   return (
