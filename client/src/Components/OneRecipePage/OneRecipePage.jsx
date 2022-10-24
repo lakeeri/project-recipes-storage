@@ -83,8 +83,8 @@ export default function OneRecipePage() {
              Хочу приготовить
              {' '}
              {pends.map((el) => el.recipeId).includes(Number(id))
-               ? (<i className="fa-light fa-square-check fa-2xl" onClick={(e) => deleteHandler(e)} />)
-               : (<i className="fa-light fa-square fa-2xl" onClick={(e) => modalHandler(e)} />)}
+               ? (<i className="fa-regular fa-square-check fa-2xl" onClick={(e) => deleteHandler(e)} />)
+               : (<i className="fa-regular fa-square fa-2xl" onClick={(e) => modalHandler(e)} />)}
              {/* <input type="checkbox" id="horns" name="horns" /> */}
            </motion.h5>
          </div>

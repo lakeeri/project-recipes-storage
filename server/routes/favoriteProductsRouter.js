@@ -8,11 +8,11 @@ router.route('/')
     try {
       const products = await Favourite.findAll(
         {
-          where: { userid: res.locals.user.id },
+          where: { userid: res.locals.user.id, fav: true },
           include: { model: Recipe, include: { model: Ingredient } },
         },
       );
-      res.json(products);
+      return res.json(products);
     } catch (e) {
       console.log(e);
       return res.sendStatus(500);

@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { getShoppingList } from '../shoppingListSlice/shoppingListSlice';
 
 const initialState = [];
 
@@ -38,7 +39,7 @@ export const addProductsList = (input) => (dispatch) => {
 
 export const deleteProductsList = (input) => (dispatch) => {
   axios.post('/api/storage/list/delete', input)
-    .then((res) => dispatch(setStorage(res.data)))
+    .then((res) => { dispatch(setStorage(res.data)); dispatch(getShoppingList()); })
     .catch(console.log);
 };
 
