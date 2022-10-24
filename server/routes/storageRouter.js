@@ -63,4 +63,24 @@ router.post('/list/delete', async (req, res) => {
   res.sendStatus(200);
 });
 
+router.post('/list/delete/cooked', async (req, res) => {
+  const { ingredients } = req.body;
+  ingredients.forEach(async (item) => {
+    const {
+      name, weight, unit, userid,
+    } = item;
+    const [newProduct, created] = await Storage.findOrCreate({
+      where: { name, userid: res.locals.user.id },
+      defaults: { weight, unit, userid },
+    });
+    if (!created) {
+      if (weight) {
+        await Storage.update({ weight: newProduct.weight - parseInt(weight, 10) }, { where: { name, userid: res.locals.user.id } });
+      }
+    }
+  });
+  const products = await Storage.findAll({ where: { userid: res.locals.user.id }, order: [['id', 'DESC']] });
+  res.json(products);
+});
+
 module.exports = router;

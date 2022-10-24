@@ -23,31 +23,49 @@
     position:relative;
     background: rgb(255, 255, 255);
     // background-color: white;
-    p{
-      position: absolute;
-      top:17.5em;
-      left:1em;
-      color:white;
-      font-size: 45px;
-      font-family: 'EB Garamond', serif;
-      opacity: 0.9;
-      }
+    // p{
+    //   position: absolute;
+    //   top:0.5em;
+    //   left:1em;
+    //   color:white;
+    //   font-size: 45px;
+    //   font-family: 'EB Garamond', serif;
+    //   opacity: 0.9;
+    //   }
      
      img{
         opacity: 2;
       }
-    i {
-      position:absolute;
-      top: 2em;
-      left: 30em;
-      color:white;
-    }
 
-    // fieldset {
-    //   position:absolute;
-    //   top: 6em;
-    //   left: 70em;
-    //   color:white;
-
-    // }
   }
+  .cooked-box{
+    position:absolute;
+    // display: flex;
+    // justify-content: space-between;
+    top: 1em;
+    left: 2em;
+    color:white;
+  }
+  .cooked-name{
+    position: absolute;
+    top: 8em;
+    left:1em;
+    color:white;
+    font-size: 30px;
+    font-family: 'EB Garamond', serif;
+    opacity: 0.9;
+  }
+  .cooked-done{
+    // position: absolute;
+    // top:0.5em;
+    // left:1em;
+    color:white;
+    font-size: 30px;
+    font-family: 'EB Garamond', serif;
+    opacity: 0.9;
+  }
+  // .cooked-icon{
+  //   // position: absolute;
+  //   top:0.5em;
+  //   left:1em;
+  // }
