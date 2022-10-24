@@ -11,6 +11,7 @@ const oneProductRouter = require('./routes/oneProductRouter');
 const favoriteProductsRouter = require('./routes/favoriteProductsRouter');
 const shoppingListRouter = require('./routes/shoppingListRouter');
 const pendingRecipesRouter = require('./routes/pendingRecipeRouter');
+const cookedRecipeRouter = require('./routes/cookedRecipeRouter');
 
 require('dotenv').config();
 
@@ -48,6 +49,7 @@ app.use('/api/storage', storageRouter);
 app.use('/api/oneProduct', oneProductRouter);
 app.use('/api/favoriteProducts', favoriteProductsRouter);
 app.use('/api/pendingRecipes', pendingRecipesRouter);
+app.use('/api/cookedRecipes', cookedRecipeRouter);
 app.use('/api/shoppingList', shoppingListRouter);
 
 app.listen(PORT);
