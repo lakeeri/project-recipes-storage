@@ -15,7 +15,6 @@ export default function MainPage() {
           <LeftSide key={el.id} item={el} />
         ))}
       </nav>
-
       <div className="gallery">
         {recipes.map((el) => (
           <RightSide key={el.id} item={el} />

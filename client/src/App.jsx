@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Registration from './Components/Registration/Registration';
 import LogIn from './Components/LogIn/LogIn';
 import MainPage from './Components/MainPage/MainPage';
@@ -17,10 +17,10 @@ import ShoppingList from './Components/Cabinet/Shopping list/ShoppingList';
 
 import OneRecipePage from './Components/OneRecipePage/OneRecipePage';
 import { getStorage } from './redux/slices/storageSlice/storageSlice';
+import { getPendingRecipes } from './redux/slices/pendingRecipeSlice/pendingRecipeSlice';
 
 function App() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     dispatch(checkUser());
@@ -28,6 +28,7 @@ function App() {
     dispatch(getProducts());
     dispatch(getStorage());
     dispatch(getFavoriteProducts());
+    dispatch(getPendingRecipes());
   }, []);
 
   return (
