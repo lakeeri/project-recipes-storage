@@ -11,7 +11,7 @@ router.route('/')
       res.json(recipes);
     } catch (e) {
       console.log(e);
-      res.sendStatus(500);
+      return res.sendStatus(500);
     }
   })
   .post(async (req, res) => {
