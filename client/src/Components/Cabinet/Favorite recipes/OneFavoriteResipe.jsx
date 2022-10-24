@@ -1,36 +1,34 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { AiFillHeart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { addFavoriteProducts, deleteFavoriteProducts, getFavoriteProducts } from '../../../redux/slices/favoriteProducts/favoriteProductsSlice';
+import { deletePendingRecipes, getPendingRecipes } from '../../../redux/slices/pendingRecipeSlice/pendingRecipeSlice';
 
 export default function OneFavoriteResipe({ item }) {
   const dispatch = useDispatch();
-  const favs = useSelector((state) => state.favorites);
+  const pend = useSelector((state) => state.pending);
+  console.log(item);
 
   useEffect(() => {
-    dispatch(getFavoriteProducts());
+    dispatch(getPendingRecipes());
   }, []);
 
   return (
-    <div className="recipe-box">
+    <div className="one-recipe-box">
       <Link to={`/storage/recipe/${item.recipeId}`}>
-        <img className="gallery__img" src={item.Recipe.image} alt={item.Recipe.name} />
+        <img className="one-gallery__img" src={item.Recipe.image} alt={item.Recipe.name} />
         <p>{item.Recipe.name}</p>
       </Link>
-      {/* */}
       {(
-        favs.map((el) => el.recipeId).includes(item.Recipe.id)
+        pend.map((el) => el.recipeId).includes(item.Recipe.id)
           ? (
-            <i
-              className="fa-solid fa-heart fa-2xl"
-              onClick={() => dispatch(deleteFavoriteProducts(item.recipeId))}
-            />
+            <AiFillHeart className="heart-fav" onClick={() => dispatch(deletePendingRecipes(item.recipeId))} />
           )
           : (
-            <i
+            {/* <i
               className="fa-regular fa-heart fa-2xl"
               onClick={() => dispatch(addFavoriteProducts(item.recipeId))}
-            />
+            /> */}
           )
       )}
     </div>

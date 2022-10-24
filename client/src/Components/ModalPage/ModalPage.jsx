@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { setModal } from '../../redux/slices/modalSlice/modalSlice';
 import './modalStyle.css';
 import { addShoppingList } from '../../redux/slices/shoppingListSlice/shoppingListSlice';
+import { deletePendingRecipes } from '../../redux/slices/pendingRecipeSlice/pendingRecipeSlice';
 
 export default function ModalPage({ trigger, shoppingList }) {
   const [list, setList] = useState([]);
@@ -26,8 +27,14 @@ export default function ModalPage({ trigger, shoppingList }) {
   // console.log(storage[0].weight);
   // console.log(modal[0]?.weight?);
 
-  const handleClose = () => {
+  const shoppingHandler = () => {
     dispatch(addShoppingList(list));
+    dispatch(setModal(null));
+    setList([]);
+  };
+
+  const handleClose = () => {
+    dispatch(deletePendingRecipes(modal.id));
     dispatch(setModal(null));
     setList([]);
   };
@@ -47,10 +54,10 @@ export default function ModalPage({ trigger, shoppingList }) {
 
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
+        <Button onClick={handleClose} variant="secondary">
           Close
         </Button>
-        <Button variant="primary" onClick={handleClose}>
+        <Button variant="primary" onClick={shoppingHandler}>
           В список покупок
         </Button>
       </Modal.Footer>

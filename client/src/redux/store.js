@@ -9,6 +9,7 @@ import favoriteProductsSlice from './slices/favoriteProducts/favoriteProductsSli
 import modalSlice from './slices/modalSlice/modalSlice';
 import shoppingListSlice from './slices/shoppingListSlice/shoppingListSlice';
 import pendingRecipeSlice from './slices/pendingRecipeSlice/pendingRecipeSlice';
+import cookedRecipeSlice from './slices/cookedRecipeSlice/cookedRecipeSlice';
 
 const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ const store = configureStore({
     modal: modalSlice,
     shoppingList: shoppingListSlice,
     pending: pendingRecipeSlice,
+    cooked: cookedRecipeSlice,
   },
 });
 
