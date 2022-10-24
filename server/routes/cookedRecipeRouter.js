@@ -48,3 +48,5 @@ router.route('/')
     );
     res.json(favs);
   });
+
+module.exports = router;
