@@ -15,6 +15,10 @@ module.exports = {
           key: 'id',
         },
       },
+      fav: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
       pending: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,

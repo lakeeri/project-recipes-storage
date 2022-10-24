@@ -8,8 +8,8 @@ import ModalPage from '../ModalPage/ModalPage';
 import ClockIcon from './ClockIcons';
 import Ingredients from './Ingredients';
 import './onerecipe.css';
-import { updateFavoriteProducts } from '../../redux/slices/favoriteProducts/favoriteProductsSlice';
 import { getShoppingList } from '../../redux/slices/shoppingListSlice/shoppingListSlice';
+import { addPendingRecipes, deletePendingRecipes } from '../../redux/slices/pendingRecipeSlice/pendingRecipeSlice';
 
 export default function OneRecipePage() {
   const textAnimation = {
@@ -42,6 +42,7 @@ export default function OneRecipePage() {
   const oneRecipe = useSelector((state) => state.oneRecipe);
   const user = useSelector((state) => state.user);
   const shoppingList = useSelector((state) => state.shoppingList);
+  const pends = useSelector((state) => state.pending);
 
   useEffect(() => {
     dispatch(getOneRecipe(id));
@@ -51,8 +52,12 @@ export default function OneRecipePage() {
   const modalHandler = (e) => {
     e.preventDefault();
     dispatch(setModal(oneRecipe));
-    dispatch(updateFavoriteProducts(id));
+    dispatch(addPendingRecipes(id));
     setTrigger((prev) => !prev);
+  };
+  const deleteHandler = (e) => {
+    e.preventDefault();
+    dispatch(deletePendingRecipes(id));
   };
 
   return (
@@ -77,7 +82,10 @@ export default function OneRecipePage() {
            <motion.h5 custom={3} variants={imgAnimation} className="want-to-cook">
              Хочу приготовить
              {' '}
-             <input type="checkbox" id="horns" name="horns" onClick={(e) => modalHandler(e)} />
+             {pends.map((el) => el.recipeId).includes(Number(id))
+               ? (<i className="fa-light fa-square-check fa-2xl" onClick={(e) => deleteHandler(e)} />)
+               : (<i className="fa-light fa-square fa-2xl" onClick={(e) => modalHandler(e)} />)}
+             {/* <input type="checkbox" id="horns" name="horns" /> */}
            </motion.h5>
          </div>
        </motion.section>

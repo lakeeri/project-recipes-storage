@@ -105,35 +105,5 @@ export default function CabinetLinks() {
   //   </div>
   // </div>
 
-    <div className="container-cabinet">
-      <div className="storage-link">
-        <Link to="/storage/products">
-          {/* <CgSmartHomeRefrigerator className="storage-icons" /> */}
-          <img className="storage-img" src="https://cdn.vox-cdn.com/thumbor/OnL0CvrcN3OiDP9Ezk9hLZEg1Yk=/1400x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/19523323/batwing.jpg" alt="storage" />
-          <p className="storage-text">Products in storage</p>
-        </Link>
-      </div>
-      <div className="storage-link">
-        {/* <GrFavorite className="storage-icons" /> */}
-        <Link to="/storage/favorites">
-          <img className="storage-img" src="https://cdn.vox-cdn.com/thumbor/OnL0CvrcN3OiDP9Ezk9hLZEg1Yk=/1400x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/19523323/batwing.jpg" alt="storage" />
-          <p className="storage-text">Favorite recipes</p>
-        </Link>
-      </div>
-      <div className="storage-link">
-        {/* <CgSmartHomeCooker className="storage-icons" /> */}
-        <Link to="/storage/cooked">
-          <img className="storage-img" src="https://cdn.vox-cdn.com/thumbor/OnL0CvrcN3OiDP9Ezk9hLZEg1Yk=/1400x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/19523323/batwing.jpg" alt="storage" />
-          <p className="storage-text">Already cooked</p>
-        </Link>
-      </div>
-      <div className="storage-link">
-        {/* <AiOutlineShoppingCart className="storage-icons" /> */}
-        <Link to="/storage/list">
-          <img className="storage-img" src="https://cdn.vox-cdn.com/thumbor/OnL0CvrcN3OiDP9Ezk9hLZEg1Yk=/1400x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/19523323/batwing.jpg" alt="storage" />
-          <p className="storage-text">Shopping list</p>
-        </Link>
-      </div>
-    </div>
   );
 }
