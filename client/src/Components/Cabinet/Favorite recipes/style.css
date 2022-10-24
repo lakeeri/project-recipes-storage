@@ -17,3 +17,13 @@
 .best-food {
   margin-top:3%
 }
+
+.heart-fav {
+    position:absolute;
+    top: 2em;
+    left: 2em;
+    color:black;
+    width: 32px;
+    height: 32px;
+}
+
