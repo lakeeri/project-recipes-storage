@@ -10,10 +10,13 @@ const shoppingListSlice = createSlice({
     setShoppingList(state, action) {
       return action.payload;
     },
+    deleteInShoppingList(state, action) {
+      return state.filter((el) => (el.id !== action.payload));
+    },
   },
 });
 
-export const { setShoppingList } = shoppingListSlice.actions;
+export const { setShoppingList, deleteInShoppingList } = shoppingListSlice.actions;
 export default shoppingListSlice.reducer;
 
 export const getShoppingList = () => (dispatch) => {
@@ -24,4 +27,10 @@ export const getShoppingList = () => (dispatch) => {
 export const addShoppingList = (value) => (dispatch) => {
   axios.post('/api/shoppingList', { value })
     .then((res) => dispatch(setShoppingList(res.data)));
+};
+
+export const deleteProductShoppingList = (id) => (dispatch) => {
+  axios.delete(`/api/shoppingList/${id}`)
+    .then(() => dispatch(deleteInShoppingList(id)))
+    .catch(console.log);
 };

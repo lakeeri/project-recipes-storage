@@ -36,6 +36,12 @@ export const addProductsList = (input) => (dispatch) => {
     .catch(console.log);
 };
 
+export const deleteProductsList = (input) => (dispatch) => {
+  axios.post('/api/storage/list/delete', input)
+    .then((res) => dispatch(setStorage(res.data)))
+    .catch(console.log);
+};
+
 export const deleteProducts = (id) => (dispatch) => {
   axios.delete(`/api/storage/${id}`)
     .then(() => dispatch(deleteInStorage(id)))

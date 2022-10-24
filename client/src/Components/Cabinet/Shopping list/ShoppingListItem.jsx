@@ -3,23 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
 import { addProducts } from '../../../redux/slices/storageSlice/storageSlice';
+import { deleteProductShoppingList } from '../../../redux/slices/shoppingListSlice/shoppingListSlice';
 
 export default function ShoppingListItem({ shoppinglist }) {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-  const addHandler = (e, input) => {
+  const addProductHandler = (e, input) => {
     e.preventDefault();
-    console.log(input);
-    dispatch(addProducts({
-      ...input, userid: user.id, name: shoppinglist.name, unit: shoppinglist.unit,
-    }));
+    console.log('!!!!!!!!!!', input);
+    dispatch(addProducts({ ...input, userid: user.id }));
   };
 
   return (
-    <div onSubmit={(e) => addHandler(e, Object.fromEntries(new FormData(e.target)))}>
+    <form onSubmit={(e) => addProductHandler(e, shoppinglist)}>
       <Row>
         <Col>
           <Typography style={{ marginTop: '3rem' }} variant="h6" gutterBottom>
@@ -27,9 +25,9 @@ export default function ShoppingListItem({ shoppinglist }) {
           </Typography>
         </Col>
         <Col>
-          <Button style={{ width: '130px', marginTop: '10px', marginLeft: '30px' }} variant="contained" type="submit">Добавить</Button>
+          <Button onClick={() => dispatch(deleteProductShoppingList(shoppinglist.id))} style={{ width: '130px', marginTop: '10px', marginLeft: '30px' }} variant="contained" type="submit">Добавить</Button>
         </Col>
       </Row>
-    </div>
+    </form>
   );
 }
