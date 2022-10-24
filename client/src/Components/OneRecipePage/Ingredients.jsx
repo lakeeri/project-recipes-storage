@@ -40,6 +40,7 @@ export default function Ingredients() {
               -
               {' '}
               {weight}
+              {' '}
               {unit}
             </p>
           ))}
