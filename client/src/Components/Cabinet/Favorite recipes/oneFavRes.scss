@@ -3,6 +3,7 @@
     overflow: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior:smooth;
+    max-width: 89%;
     // overflow: hidden;
   }
   
@@ -20,7 +21,7 @@
 
   .one-recipe-box{
     position:relative;
-    background: #000;
+    background: rgb(255, 255, 255);
     // background-color: white;
     p{
       position: absolute;
@@ -33,7 +34,7 @@
       }
      
      img{
-        opacity: 0.8;
+        opacity: 2;
       }
     i {
       position:absolute;

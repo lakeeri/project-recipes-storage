@@ -7,12 +7,17 @@ const {
 
 router.route('/')
   .get(async (req, res) => {
-    const list = await ShoppingList.findAll(
-      {
-        where: { userid: res.locals.user.id },
-      },
-    );
-    res.json(list);
+    try {
+      const list = await ShoppingList.findAll(
+        {
+          where: { userid: res.locals.user.id },
+        },
+      );
+      res.json(list);
+    } catch (e) {
+      console.log(e);
+      res.sendStatus(500);
+    }
   })
   .post(async (req, res) => {
     const list = req.body.value;

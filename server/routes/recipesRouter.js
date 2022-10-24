@@ -6,8 +6,13 @@ const { Recipe, Ingredient } = require('../db/models');
 
 router.route('/')
   .get(async (req, res) => {
-    const recipes = await Recipe.findAll({ include: { model: Ingredient } });
-    res.json(recipes);
+    try {
+      const recipes = await Recipe.findAll({ include: { model: Ingredient } });
+      res.json(recipes);
+    } catch (e) {
+      console.log(e);
+      return res.sendStatus(500);
+    }
   })
   .post(async (req, res) => {
     const { input } = req.body;
