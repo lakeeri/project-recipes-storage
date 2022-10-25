@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
 import Button from '@mui/material/Button';
 import { getShoppingList } from '../../../redux/slices/shoppingListSlice/shoppingListSlice';
 import ShoppingListItem from './ShoppingListItem';
@@ -15,6 +16,11 @@ export default function ShoppingList() {
     dispatch(addProductsList((input)));
   };
 
+  const clickHandler = (e) => {
+    e.preventDefault();
+    axios.post('/api/mailer');
+  };
+
   useEffect(() => {
     dispatch(getShoppingList());
   }, []);
@@ -28,6 +34,9 @@ export default function ShoppingList() {
       <form onSubmit={(e) => addHandler(e, shoppingList)}>
         <div>
           <Button onClick={() => dispatch(deleteProductsList(shoppingList))} style={{ width: '130px', marginTop: '10px', marginLeft: '30px' }} variant="contained" type="submit">Добавить</Button>
+        </div>
+        <div>
+          <Button onClick={clickHandler} style={{ width: '230px', marginTop: '10px', marginLeft: '30px' }} variant="contained" type="submit">Отправить на почту</Button>
         </div>
       </form>
     </>
