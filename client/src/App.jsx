@@ -22,6 +22,7 @@ import { getPendingRecipes } from './redux/slices/pendingRecipeSlice/pendingReci
 import { getShoppingList } from './redux/slices/shoppingListSlice/shoppingListSlice';
 import { getCookedRecipes } from './redux/slices/cookedRecipeSlice/cookedRecipeSlice';
 import { getMiddle } from './redux/slices/middleSlice/middleSlice';
+import { getIngredientsSlice } from './redux/slices/ingredientsSlice/ingredientsSlice';
 
 function App() {
   const location = useLocation();
@@ -37,6 +38,7 @@ function App() {
     dispatch(getPendingRecipes());
     dispatch(getCookedRecipes());
     dispatch(getMiddle());
+    dispatch(getIngredientsSlice());
   }, []);
 
   return (

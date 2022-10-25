@@ -15,7 +15,6 @@ router.route('/')
   })
   .post(async (req, res) => {
     const middles = req.body.input;
-    // console.log(middles);
     middles.forEach(async (item) => {
       const {
         name, weight, unit, recipeid,
@@ -25,6 +24,7 @@ router.route('/')
       });
     });
     const final = await Middle.findAll({ where: { userid: res.locals.user.id } });
+    console.log(final);
     res.json(final);
   })
   .delete(async (req, res) => {

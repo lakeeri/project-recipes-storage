@@ -10,7 +10,8 @@ import Ingredients from './Ingredients';
 import './onerecipe.css';
 import { getShoppingList } from '../../redux/slices/shoppingListSlice/shoppingListSlice';
 import { addPendingRecipes, deletePendingRecipes } from '../../redux/slices/pendingRecipeSlice/pendingRecipeSlice';
-import { deleteMiddle } from '../../redux/slices/middleSlice/middleSlice';
+import { deleteMiddle, getMiddle } from '../../redux/slices/middleSlice/middleSlice';
+import { addIngredientsSlice, getIngredientsSlice } from '../../redux/slices/ingredientsSlice/ingredientsSlice';
 
 export default function OneRecipePage() {
   const textAnimation = {
@@ -42,17 +43,22 @@ export default function OneRecipePage() {
   const dispatch = useDispatch();
   const oneRecipe = useSelector((state) => state.oneRecipe);
   const user = useSelector((state) => state.user);
-  const shoppingList = useSelector((state) => state.shoppingList);
+  // const shoppingList = useSelector((state) => state.shoppingList);
   const pends = useSelector((state) => state.pending);
 
-  useEffect(() => {
-    dispatch(getOneRecipe(id));
-    dispatch(getShoppingList());
-  }, []);
+  useEffect(
+    () => {
+      dispatch(getOneRecipe(id));
+      dispatch(getShoppingList());
+      dispatch(getMiddle());
+    },
+    [],
+  );
 
   const modalHandler = (e) => {
     e.preventDefault();
     dispatch(setModal(oneRecipe));
+    dispatch(addIngredientsSlice(oneRecipe.Ingredients));
     dispatch(addPendingRecipes(id));
     setTrigger((prev) => !prev);
   };
@@ -121,7 +127,7 @@ export default function OneRecipePage() {
             <motion.div custom={4} variants={textAnimation} className="description__content" dangerouslySetInnerHTML={{ __html: oneRecipe.description }} />
           </div>
         </div>
-        <ModalPage setTrigger={setTrigger} trigger={trigger} shoppingList={shoppingList} />
+        <ModalPage setTrigger={setTrigger} trigger={trigger} />
       </div>
     </motion.section>
   );

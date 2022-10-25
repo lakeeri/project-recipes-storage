@@ -9,7 +9,6 @@ import { deleteProductsCookedRecipes } from '../../../redux/slices/storageSlice/
 export default function OneFavoriteResipe({ item }) {
   const dispatch = useDispatch();
   const pend = useSelector((state) => state.pending);
-  console.log(item);
 
   useEffect(() => {
     dispatch(getPendingRecipes());
