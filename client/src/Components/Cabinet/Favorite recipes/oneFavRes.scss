@@ -21,8 +21,8 @@
 
   .one-recipe-box{
     position:relative;
-    background: rgb(255, 255, 255);
-    // background-color: white;
+    // background: rgb(255, 255, 255);
+    // background-color: inherit;
     // p{
     //   position: absolute;
     //   top:0.5em;
@@ -34,7 +34,7 @@
     //   }
      
      img{
-        opacity: 2;
+        opacity: 1;
       }
 
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './carousel.scss';
+import { motion } from 'framer-motion';
 import LeftSide from './LeftSide';
 import RightSide from './RightSide';
 
@@ -9,7 +10,12 @@ export default function MainPage() {
 
   return (
 
-    <div className="wrapper">
+    <motion.div
+      className="wrapper"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <nav className="lil-nav">
         {recipes.map((el) => (
           <LeftSide key={el.id} item={el} />
@@ -20,7 +26,7 @@ export default function MainPage() {
           <RightSide key={el.id} item={el} />
         ))}
       </div>
-    </div>
+    </motion.div>
 
   );
 }

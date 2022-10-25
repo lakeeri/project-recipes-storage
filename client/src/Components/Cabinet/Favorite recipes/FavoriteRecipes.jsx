@@ -1,8 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import OneFavoriteResipe from './OneFavoriteResipe';
-// import { getFavoriteProducts } from '../../../redux/slices/favoriteProducts/favoriteProductsSlice';
-// import OneFavoriteResipe from './OneFavoriteResipe';
 import OneFavRes from './OneFavRes';
 import './oneFavRes.scss';
 import './style.css';
