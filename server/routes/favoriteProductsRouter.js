@@ -1,4 +1,5 @@
 const express = require('express');
+const { Op } = require('sequelize');
 
 const router = express.Router();
 const { Favourite, Recipe, Ingredient } = require('../db/models');
@@ -48,6 +49,19 @@ router.route('/')
     );
     res.json(favs);
   });
+
+router.post('/filter', async (req, res) => {
+  const { input } = req.body;
+  const favs = await Favourite.findAll(
+    {
+      where: { userid: res.locals.user.id, fav: true },
+      include: { model: Recipe, include: { model: Ingredient } },
+    },
+  );
+  const favourites = favs.filter((el) => el.Recipe.name.toLowerCase().includes(input.toLowerCase()));
+  res.json(favourites);
+});
+
 // .put(async (req, res) => {
 //   const { id } = req.body;
 //   const fav = await Favourite.findOne({

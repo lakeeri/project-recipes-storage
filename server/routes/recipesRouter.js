@@ -8,7 +8,7 @@ router.route('/')
   .get(async (req, res) => {
     try {
       const recipes = await Recipe.findAll({ include: { model: Ingredient } });
-      res.json(recipes);
+      return res.json(recipes);
     } catch (e) {
       console.log(e);
       return res.sendStatus(500);
@@ -19,7 +19,7 @@ router.route('/')
     const recipes = await Recipe.findAll({
       where: {
         name: {
-          [Op.like]: `%${input}%`,
+          [Op.like]: `%${input[0].toUpperCase()}${input.slice(1).toLowerCase()}%`,
         },
       },
     });
@@ -28,7 +28,6 @@ router.route('/')
 
 router.post('/:id', async (req, res) => {
   const { id } = req.params;
-  console.log(id);
   const recipe = await Recipe.findOne({
     where: { id },
     include: { model: Ingredient },

@@ -1,4 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './sagas/rootSaga';
 import userSlice from './slices/userSlice/userSlice';
 import recipesSlice from './slices/recipesSlice/recipesSlice';
 import productsSlice from './slices/productsSlice/productsSlice';
@@ -12,6 +14,8 @@ import pendingRecipeSlice from './slices/pendingRecipeSlice/pendingRecipeSlice';
 import cookedRecipeSlice from './slices/cookedRecipeSlice/cookedRecipeSlice';
 import middleSlice from './slices/middleSlice/middleSlice';
 import ingredientsSlice from './slices/ingredientsSlice/ingredientsSlice';
+
+const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
   reducer: {
@@ -29,6 +33,9 @@ const store = configureStore({
     middle: middleSlice,
     ingredients: ingredientsSlice,
   },
+  middleware: (mid) => [...mid(), sagaMiddleware],
 });
+
+sagaMiddleware.run(rootSaga);
 
 export default store;

@@ -5,6 +5,7 @@ import './nav.css';
 import { CgSmartHomeRefrigerator } from 'react-icons/cg';
 import { filterRecipes, getRecipes } from '../../redux/slices/recipesSlice/recipesSlice';
 import Burger from './Burger';
+import { filterFavourites, getFavoriteProducts } from '../../redux/slices/favoriteProducts/favoriteProductsSlice';
 
 export default function NavBar() {
   const user = useSelector((state) => state.user);
@@ -19,8 +20,11 @@ export default function NavBar() {
   useEffect(() => {
     if (input.length) {
       dispatch(filterRecipes(input));
+      dispatch(filterFavourites(input));
+      // dispatch({ type: 'GET_FILTER' });
     } else {
       dispatch(getRecipes());
+      dispatch(getFavoriteProducts());
     }
   }, [input]);
 
