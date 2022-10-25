@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { oldUser } from '../../redux/slices/userSlice/userSlice';
 
 export default function LogIn() {
@@ -14,7 +15,12 @@ export default function LogIn() {
   };
 
   return (
-    <div className="registration">
+    <motion.div
+      className="registration"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="container">
         <h1 className="form-title">Authorisation</h1>
         <form className="center" onSubmit={(e) => loginHandler(e, Object.fromEntries(new FormData(e.target)))}>
@@ -33,6 +39,6 @@ export default function LogIn() {
           </div>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 }
