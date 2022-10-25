@@ -1,5 +1,5 @@
 const express = require('express');
-const { Op } = require("sequelize");
+const { Op } = require('sequelize');
 
 const router = express.Router();
 const {
@@ -11,7 +11,7 @@ router.route('/')
     try {
       const list = await ShoppingList.findAll(
         {
-          where: { userid: res.locals.user.id },
+          where: { userid: res.locals.user.id, weight: { [Op.ne]: 0 } },
         },
       );
       res.json(list);
@@ -40,6 +40,7 @@ router.route('/')
     const final = await ShoppingList.findAll(
       {
         where: { userid: res.locals.user.id },
+        weight: { [Op.ne]: 0 },
       },
     );
     res.json(final);
@@ -57,7 +58,7 @@ router.route('/')
     await ShoppingList.destroy({ where: { userid: res.locals.user.id, weight: { [Op.eq]: 0 } } });
     const final = await ShoppingList.findAll(
       {
-        where: { userid: res.locals.user.id },
+        where: { userid: res.locals.user.id, weight: { [Op.ne]: 0 } },
       },
     );
     res.json(final);

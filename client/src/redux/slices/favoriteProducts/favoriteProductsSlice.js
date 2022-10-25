@@ -31,6 +31,11 @@ export const deleteFavoriteProducts = (id) => (dispatch) => {
     .then((res) => dispatch(setFavoriteProducts(res.data)));
 };
 
+export const filterFavourites = (input) => (dispatch) => {
+  axios.post('/api/favoriteProducts/filter', { input })
+    .then((res) => dispatch(setFavoriteProducts(res.data)));
+};
+
 // export const updateFavoriteProducts = (id) => (dispatch) => {
 //   axios.put('/api/favoriteProducts', { id })
 //     .then((res) => dispatch(setFavoriteProducts(res.data)));

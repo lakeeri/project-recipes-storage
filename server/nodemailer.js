@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 const transporter = nodemailer.createTransport(
   {
@@ -8,8 +9,8 @@ const transporter = nodemailer.createTransport(
     port: 465,
     secure: true,
     auth: {
-      user: 'Recipes-storage',
-      pass: 'yvwdihmancjlgzys',
+      user: process.env.DB_USER_MAIL,
+      pass: process.env.DB_PASS_MAIL,
     },
   },
   {

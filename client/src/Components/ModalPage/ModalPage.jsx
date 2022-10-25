@@ -8,7 +8,7 @@ import { addShoppingList } from '../../redux/slices/shoppingListSlice/shoppingLi
 import { deletePendingRecipes } from '../../redux/slices/pendingRecipeSlice/pendingRecipeSlice';
 import { addMiddle } from '../../redux/slices/middleSlice/middleSlice';
 
-export default function ModalPage({ trigger, shoppingList }) {
+export default function ModalPage({ trigger }) {
   const [list, setList] = useState([]);
 
   const modal = useSelector((state) => state.modal);
@@ -41,28 +41,42 @@ export default function ModalPage({ trigger, shoppingList }) {
     setList([]);
   };
 
-  return (
-    <Modal show={modal} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Modal heading</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        {list && list.map((el) => (
-          <div className="two-in-row">
-            <p>{el.name}</p>
-            <p>{`${el.weight} ${el.unit}`}</p>
-          </div>
-        ))}
+  const closeModalHandler = () => {
+    dispatch(setModal(null));
+    setList([]);
+  };
 
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={handleClose} variant="secondary">
-          Close
-        </Button>
-        <Button variant="primary" onClick={shoppingHandler}>
-          В список покупок
-        </Button>
-      </Modal.Footer>
-    </Modal>
+  return (
+    <div>
+      {list.length ? (
+        <Modal show={modal} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Список ингредиентов</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {list && list.map((el) => (
+              <div className="two-in-row">
+                <p>{el.name}</p>
+                <p>{`${el.weight} ${el.unit}`}</p>
+              </div>
+            ))}
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={handleClose} variant="secondary">
+              Закрыть
+            </Button>
+            <Button variant="primary" onClick={shoppingHandler}>
+              В список покупок
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      ) : (
+        <Modal show={modal} onHide={closeModalHandler}>
+          <Modal.Header closeButton>
+            <Modal.Title>Все ингредиенты есть. Вперед к готовке!</Modal.Title>
+          </Modal.Header>
+        </Modal>
+      )}
+    </div>
   );
 }
