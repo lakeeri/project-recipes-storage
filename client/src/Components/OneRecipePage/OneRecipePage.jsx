@@ -10,6 +10,7 @@ import Ingredients from './Ingredients';
 import './onerecipe.css';
 import { getShoppingList } from '../../redux/slices/shoppingListSlice/shoppingListSlice';
 import { addPendingRecipes, deletePendingRecipes } from '../../redux/slices/pendingRecipeSlice/pendingRecipeSlice';
+import { deleteMiddle } from '../../redux/slices/middleSlice/middleSlice';
 
 export default function OneRecipePage() {
   const textAnimation = {
@@ -57,6 +58,7 @@ export default function OneRecipePage() {
   };
   const deleteHandler = (e) => {
     e.preventDefault();
+    dispatch(deleteMiddle(id));
     dispatch(deletePendingRecipes(id));
   };
 

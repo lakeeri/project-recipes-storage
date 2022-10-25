@@ -20,6 +20,7 @@ import { getStorage } from './redux/slices/storageSlice/storageSlice';
 import { getPendingRecipes } from './redux/slices/pendingRecipeSlice/pendingRecipeSlice';
 import { getShoppingList } from './redux/slices/shoppingListSlice/shoppingListSlice';
 import { getCookedRecipes } from './redux/slices/cookedRecipeSlice/cookedRecipeSlice';
+import { getMiddle } from './redux/slices/middleSlice/middleSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ function App() {
     dispatch(getFavoriteProducts());
     dispatch(getPendingRecipes());
     dispatch(getCookedRecipes());
+    dispatch(getMiddle());
   }, []);
 
   return (
