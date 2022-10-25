@@ -63,7 +63,16 @@
     display:flex;
     justify-content:center;
     padding: 5rem;
-    margin: 1rem;
+    /* margin: 1rem; */
+    background-image: url(https://img.freepik.com/free-photo/white-concrete-wall_53876-92803.jpg?w=1380&t=st=1666689000~exp=1666689600~hmac=6e4765e0b2243ab3191b5abe19985ee0fc6c4d72cd5114c9db7a93e748715774);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: inherit;
   }
   .container {
     width:100%;

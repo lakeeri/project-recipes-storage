@@ -57,7 +57,7 @@ router.route('/')
     await ShoppingList.destroy({ where: { userid: res.locals.user.id, weight: { [Op.eq]: 0 } } });
     const final = await ShoppingList.findAll(
       {
-        where: { userid: res.locals.user.id },
+        where: { userid: res.locals.user.id, weight: { [Op.ne]: 0 } },
       },
     );
     res.json(final);

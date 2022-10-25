@@ -1,3 +1,14 @@
+#root{
+  background-image: url(https://img.freepik.com/free-photo/white-concrete-wall_53876-92803.jpg?w=1380&t=st=1666689000~exp=1666689600~hmac=6e4765e0b2243ab3191b5abe19985ee0fc6c4d72cd5114c9db7a93e748715774);
+  // background-repeat:repeat;
+  // background-position: center center;
+  // background-attachment:scroll;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+}
+
 img {
     display: block;
     max-width: 100%;
@@ -5,11 +16,11 @@ img {
   
   .wrapper {
     overflow: hidden;
-    height: 100vh;
+    height: 88vh;
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-gap: 20px;
-    margin-top: 50px;
+    margin-top: 40px;
     margin-right: 80px;
     margin-left: 80px;
     margin-bottom: 80px;
@@ -19,11 +30,12 @@ img {
     overflow: scroll;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    max-height: 98%;
   }
   
   .gallery__img {
     scroll-snap-align: start;
-    margin-bottom: -50px;
+    // margin-bottom: -50px;
     min-height: 70vh;
     min-width: 1450px;
     object-fit: cover;
@@ -32,6 +44,7 @@ img {
   .lil-nav {
     overflow-y: scroll;
     overflow-x: hidden;
+    max-height: 98%;
   
     a {
       height: 200px;

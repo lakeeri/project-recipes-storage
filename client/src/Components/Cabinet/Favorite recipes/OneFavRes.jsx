@@ -17,7 +17,7 @@ export default function OneFavRes({ item }) {
     <div className="one-recipe-box">
       <Link to={`/storage/recipe/${item.recipeId}`}>
         <img className="one-gallery__img" src={item.Recipe.image} alt={item.Recipe.name} />
-        <p>{item.Recipe.name}</p>
+        <p className="cooked-name">{item.Recipe.name}</p>
       </Link>
       {(
         favs.map((el) => el.recipeId).includes(item.Recipe.id)
