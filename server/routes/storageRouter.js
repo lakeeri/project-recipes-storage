@@ -79,6 +79,9 @@ router.post('/list/delete/cooked', async (req, res) => {
       }
     }
   });
+  // const nulls = await Storage.findAll({ where: { weight: 0 } });
+  // nulls.forEach(async (item) => await Storage.destroy({ where: { weight: 0 } }));
+  // console.log(nulls);
   const products = await Storage.findAll({ where: { userid: res.locals.user.id }, order: [['id', 'DESC']] });
   res.json(products);
 });
