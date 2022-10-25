@@ -29,6 +29,11 @@ export const addShoppingList = (value) => (dispatch) => {
     .then((res) => dispatch(setShoppingList(res.data)));
 };
 
+export const changeShoppingList = (list) => (dispatch) => {
+  axios.patch('/api/shoppingList', list)
+    .then((res) => dispatch(setShoppingList(res.data)));
+};
+
 export const deleteProductShoppingList = (id) => (dispatch) => {
   axios.delete(`/api/shoppingList/${id}`)
     .then(() => dispatch(deleteInShoppingList(id)))

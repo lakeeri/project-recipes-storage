@@ -1,8 +1,9 @@
 const express = require('express');
+const { Op } = require("sequelize");
 
 const router = express.Router();
 const {
-  Favourite, Recipe, Ingredient, ShoppingList,
+  Favourite, Recipe, ShoppingList,
 } = require('../db/models');
 
 router.route('/')
@@ -36,6 +37,24 @@ router.route('/')
         }
       }
     });
+    const final = await ShoppingList.findAll(
+      {
+        where: { userid: res.locals.user.id },
+      },
+    );
+    res.json(final);
+  })
+  .patch(async (req, res) => {
+    const list = req.body;
+    list.forEach(async (item) => {
+      const {
+        name, weight,
+      } = item;
+      await ShoppingList.increment({
+        weight: -weight,
+      }, { where: { name, userid: res.locals.user.id } });
+    });
+    await ShoppingList.destroy({ where: { userid: res.locals.user.id, weight: { [Op.eq]: 0 } } });
     const final = await ShoppingList.findAll(
       {
         where: { userid: res.locals.user.id },

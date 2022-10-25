@@ -6,6 +6,7 @@ import { setModal } from '../../redux/slices/modalSlice/modalSlice';
 import './modalStyle.css';
 import { addShoppingList } from '../../redux/slices/shoppingListSlice/shoppingListSlice';
 import { deletePendingRecipes } from '../../redux/slices/pendingRecipeSlice/pendingRecipeSlice';
+import { addMiddle } from '../../redux/slices/middleSlice/middleSlice';
 
 export default function ModalPage({ trigger, shoppingList }) {
   const [list, setList] = useState([]);
@@ -29,6 +30,7 @@ export default function ModalPage({ trigger, shoppingList }) {
 
   const shoppingHandler = () => {
     dispatch(addShoppingList(list));
+    dispatch(addMiddle(list));
     dispatch(setModal(null));
     setList([]);
   };
