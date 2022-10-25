@@ -13,6 +13,7 @@ import shoppingListSlice from './slices/shoppingListSlice/shoppingListSlice';
 import pendingRecipeSlice from './slices/pendingRecipeSlice/pendingRecipeSlice';
 import cookedRecipeSlice from './slices/cookedRecipeSlice/cookedRecipeSlice';
 import middleSlice from './slices/middleSlice/middleSlice';
+import ingredientsSlice from './slices/ingredientsSlice/ingredientsSlice';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -30,6 +31,7 @@ const store = configureStore({
     pending: pendingRecipeSlice,
     cooked: cookedRecipeSlice,
     middle: middleSlice,
+    ingredients: ingredientsSlice,
   },
   middleware: (mid) => [...mid(), sagaMiddleware],
 });

@@ -39,8 +39,7 @@ router.route('/')
     });
     const final = await ShoppingList.findAll(
       {
-        where: { userid: res.locals.user.id },
-        weight: { [Op.ne]: 0 },
+        where: { userid: res.locals.user.id, weight: { [Op.ne]: 0 } },
       },
     );
     res.json(final);

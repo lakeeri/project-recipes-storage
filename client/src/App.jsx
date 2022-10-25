@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { AnimatePresence } from 'framer-motion';
 import Registration from './Components/Registration/Registration';
 import LogIn from './Components/LogIn/LogIn';
 import MainPage from './Components/MainPage/MainPage';
@@ -21,8 +22,10 @@ import { getPendingRecipes } from './redux/slices/pendingRecipeSlice/pendingReci
 import { getShoppingList } from './redux/slices/shoppingListSlice/shoppingListSlice';
 import { getCookedRecipes } from './redux/slices/cookedRecipeSlice/cookedRecipeSlice';
 import { getMiddle } from './redux/slices/middleSlice/middleSlice';
+import { getIngredientsSlice } from './redux/slices/ingredientsSlice/ingredientsSlice';
 
 function App() {
+  const location = useLocation();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,6 +38,7 @@ function App() {
     dispatch(getPendingRecipes());
     dispatch(getCookedRecipes());
     dispatch(getMiddle());
+    dispatch(getIngredientsSlice());
   }, []);
 
   return (
@@ -42,17 +46,19 @@ function App() {
       <header>
         <NavBar />
       </header>
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/user/registration" element={<Registration />} />
-        <Route path="/user/login" element={<LogIn />} />
-        <Route path="/storage" element={<CabinetPage />} />
-        <Route path="/storage/products" element={<StorageProducts />} />
-        <Route path="/storage/favorites" element={<FavoriteRecipes />} />
-        <Route path="/storage/cooked" element={<CookedRecipes />} />
-        <Route path="/storage/list" element={<ShoppingList />} />
-        <Route path="/storage/recipe/:id" element={<OneRecipePage />} />
-      </Routes>
+      <AnimatePresence>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/user/registration" element={<Registration />} />
+          <Route path="/user/login" element={<LogIn />} />
+          <Route path="/storage" element={<CabinetPage />} />
+          <Route path="/storage/products" element={<StorageProducts />} />
+          <Route path="/storage/favorites" element={<FavoriteRecipes />} />
+          <Route path="/storage/cooked" element={<CookedRecipes />} />
+          <Route path="/storage/list" element={<ShoppingList />} />
+          <Route path="/storage/recipe/:id" element={<OneRecipePage />} />
+        </Routes>
+      </AnimatePresence>
     </main>
   );
 }
