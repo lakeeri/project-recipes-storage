@@ -13,6 +13,9 @@
   height: inherit;
   width: 100%;
   }
+  main{
+    height: 96%;
+  }
   .title{
     color:rgb(58, 34, 78);
     font-family: 'Montserrat', serif;
@@ -95,7 +98,7 @@
     flex-wrap: wrap;
     width: 80%;
     padding: 1rem;
-  
+    color:black;
   } 
   .user-input-box label {
     width: 95%;

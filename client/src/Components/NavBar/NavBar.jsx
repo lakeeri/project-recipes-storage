@@ -55,6 +55,7 @@ export default function NavBar() {
       </ul>
       <form action="" className="search-bar">
         <input
+          className="input-search"
           onChange={inputHandler}
           value={input}
           type="text"

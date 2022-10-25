@@ -12,7 +12,7 @@
 	line-height: 1em;
 } */
 body, input {
-	color: #171717;
+	color: #000000;
 }
 body, .search-bar {
 	display: flex;
@@ -138,7 +138,7 @@ body {
 }
 
 @media screen and (prefers-color-scheme: dark) {
-	body, input {
+	body, .input-search {
 		color: #f1f1f1;
 	}
 	body {

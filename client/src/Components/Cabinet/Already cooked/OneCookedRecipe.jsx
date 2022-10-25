@@ -2,6 +2,7 @@ import React from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { AiFillHeart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import '../Favorite recipes/oneFavRes.scss';
 // import { deletePendingRecipes, getPendingRecipes } from '../../../redux/slices/pendingRecipeSlice/pendingRecipeSlice';
 // import { addCookedRecipes } from '../../../redux/slices/cookedRecipeSlice/cookedRecipeSlice';
 // import { deleteProductsCookedRecipes } from '../../../redux/slices/storageSlice/storageSlice';
