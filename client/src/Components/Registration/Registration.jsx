@@ -21,7 +21,7 @@ export default function Registration() {
       exit={{ opacity: 0 }}
     >
       <div className="container">
-        <h1 className="form-title">Registration</h1>
+        <h1 className="form-title">Регистрация</h1>
         <form className="center" onSubmit={(e) => handleRegistration(e, Object.fromEntries(new FormData(e.target)))}>
           <div className="main-user-info">
             <div className="user-input-box">

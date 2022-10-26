@@ -22,7 +22,7 @@ export default function LogIn() {
       exit={{ opacity: 0 }}
     >
       <div className="container">
-        <h1 className="form-title">Authorisation</h1>
+        <h1 className="form-title">Авторизация</h1>
         <form className="center" onSubmit={(e) => loginHandler(e, Object.fromEntries(new FormData(e.target)))}>
           <div className="main-user-info">
             <div className="user-input-box">

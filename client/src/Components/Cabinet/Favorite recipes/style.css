@@ -22,9 +22,9 @@
     position:absolute;
     top: 2em;
     left: 2em;
-    color:black;
-    width: 32px;
-    height: 32px;
+    color:rgb(255, 0, 0);
+    width: 45px;
+    height: 45px;
     cursor: pointer;
 }
 

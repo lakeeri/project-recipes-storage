@@ -1,24 +1,37 @@
+.shop-list-main-div{
+  /* position: absolute; */
+  margin-left: 38%;
+}
+
 .shop-list{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 45%;
+    max-width: 50%;
 }
 
 .shop-item{
     display: flex;
     margin-right: 5%;
-    width: 220px;
+    width: 260px;
 }
 
 .cart-button[type="submit"] {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   color: green;
   cursor: pointer;
 }
 
 .btn-cart {
   background-color: inherit;
+}
+
+.list-title{
+  margin-left: 10%;
+}
+
+.send{
+  margin-left: 5px;
 }
 
