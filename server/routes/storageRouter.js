@@ -53,6 +53,8 @@ router.post('/list', async (req, res) => {
       }
     }
   });
+  const products = await Storage.findAll({ where: { userid: res.locals.user.id, weight: { [Op.ne]: 0 } } });
+  res.json(products);
 });
 
 router.post('/list/delete', async (req, res) => {

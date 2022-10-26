@@ -20,7 +20,7 @@ export default function CabinetLinks() {
             </div>
             <div className="content">
               <h2>
-                Products in storage
+                Продукты в наличии
               </h2>
             </div>
           </Link>
@@ -33,7 +33,7 @@ export default function CabinetLinks() {
             </div>
             <div className="content">
               <h2>
-                Favorite recipes
+                Избранные
               </h2>
             </div>
           </Link>
@@ -45,7 +45,7 @@ export default function CabinetLinks() {
             </div>
             <div className="content">
               <h2>
-                Already cooked
+                Приготовленные
               </h2>
             </div>
           </Link>
@@ -57,7 +57,7 @@ export default function CabinetLinks() {
             </div>
             <div className="content">
               <h2>
-                Shopping list
+                Список покупок
               </h2>
             </div>
           </Link>

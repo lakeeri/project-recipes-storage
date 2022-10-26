@@ -31,15 +31,15 @@ export default function Burger() {
         {!user.id
           ? (
             <>
-              <Link to="/user/registration"><li>Register</li></Link>
-              <Link to="/user/login"><li>Login</li></Link>
+              <Link to="/user/registration"><li>Зарегистрироваться</li></Link>
+              <Link to="/user/login"><li>Войти</li></Link>
             </>
           )
           : (
             <>
-              <Link to="/"><li>Home</li></Link>
-              <Link to="/storage"><li>Personal storage</li></Link>
-              <Link to="/user/logout" onClick={(e) => logoutHandler(e)}><li>Logout</li></Link>
+              {/* <Link to="/"><li>Home</li></Link> */}
+              <Link to="/storage"><li>Личный кабинет</li></Link>
+              <Link to="/user/logout" onClick={(e) => logoutHandler(e)}><li>Выйти</li></Link>
             </>
           )}
       </ul>

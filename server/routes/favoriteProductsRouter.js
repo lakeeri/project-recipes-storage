@@ -52,14 +52,19 @@ router.route('/')
 
 router.post('/filter', async (req, res) => {
   const { input } = req.body;
-  const favs = await Favourite.findAll(
-    {
-      where: { userid: res.locals.user.id, fav: true },
-      include: { model: Recipe, include: { model: Ingredient } },
-    },
-  );
-  const favourites = favs.filter((el) => el.Recipe.name.toLowerCase().includes(input.toLowerCase()));
-  res.json(favourites);
+  try {
+    const favs = await Favourite.findAll(
+      {
+        where: { userid: res.locals.user.id, fav: true },
+        include: { model: Recipe, include: { model: Ingredient } },
+      },
+    );
+    const favourites = favs.filter((el) => el.Recipe.name.toLowerCase().includes(input.toLowerCase()));
+    res.json(favourites);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
 });
 
 // .put(async (req, res) => {

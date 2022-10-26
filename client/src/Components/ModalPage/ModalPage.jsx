@@ -24,6 +24,7 @@ export default function ModalPage({ trigger }) {
     modal?.Ingredients
       .forEach((mod) => !storage?.some((stor) => (mod.name.toLowerCase() === stor.name.toLowerCase()) && (mod.weight < stor.weight || mod.weight === stor.weight)) && setList((prev) => [...prev, {
         ...mod,
+        // name: mod.name.toLowerCase(),
         weight: storage.filter((el) => el.name.toLowerCase() === mod.name.toLowerCase())[0]
           ? mod.weight - storage.filter((el) => el.name.toLowerCase() === mod.name.toLowerCase())[0].weight : mod.weight,
       }]));
@@ -57,7 +58,7 @@ export default function ModalPage({ trigger }) {
       {list.length ? (
         <Modal show={modal} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Список ингредиентов</Modal.Title>
+            <Modal.Title>Необходимо докупить:</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {list && list.map((el) => (

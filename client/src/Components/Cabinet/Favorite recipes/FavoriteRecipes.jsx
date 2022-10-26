@@ -14,7 +14,7 @@ export default function FavoriteRecipes() {
       {favs.length
         ? (
           <div className="box-shadow-rec">
-            <h3 className="best-food">Лучшие рецепты:</h3>
+            <h3 className="best-food">Избранные рецепты:</h3>
             <div className="one-gallery">
               {favs?.map((el) => (
                 <div className="fav-rec-card">
