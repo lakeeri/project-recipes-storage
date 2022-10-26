@@ -20,6 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     time: DataTypes.INTEGER,
     image: DataTypes.TEXT,
+    complexity: DataTypes.TEXT,
+    portions: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Recipe',

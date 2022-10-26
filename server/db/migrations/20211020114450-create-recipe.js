@@ -20,6 +20,12 @@ module.exports = {
       image: {
         type: Sequelize.TEXT,
       },
+      complexity: {
+        type: Sequelize.TEXT,
+      },
+      portions: {
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
