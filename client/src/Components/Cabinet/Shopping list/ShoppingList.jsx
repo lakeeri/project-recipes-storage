@@ -26,8 +26,8 @@ export default function ShoppingList() {
   }, []);
 
   return (
-    <>
-      <h2>Ваша корзина</h2>
+    <div className="shop-list-main-div">
+      <h2 className="list-title">Ваша корзина</h2>
       <div className="shop-list">
         {shoppingList && shoppingList?.map((el) => <ShoppingListItem key={el.id} shoppinglist={el} />)}
       </div>
@@ -36,9 +36,14 @@ export default function ShoppingList() {
           <Button onClick={() => dispatch(deleteProductsList(shoppingList))} style={{ width: '130px', marginTop: '10px', marginLeft: '30px' }} variant="contained" type="submit">Добавить</Button>
         </div>
         <div>
-          <Button onClick={clickHandler} style={{ width: '230px', marginTop: '10px', marginLeft: '30px' }} variant="contained" type="submit">Отправить на почту</Button>
+          <Button onClick={clickHandler} style={{ width: '230px', marginTop: '10px', marginLeft: '30px' }} variant="contained" type="submit">
+            Отправить на почту
+            <svg className="send" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="currentcolor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+            </svg>
+          </Button>
         </div>
       </form>
-    </>
+    </div>
   );
 }

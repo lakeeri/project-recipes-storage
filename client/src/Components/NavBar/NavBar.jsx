@@ -38,10 +38,10 @@ export default function NavBar() {
           ? (
             <div className="info">
               <div className="home">
-                <li><Link to="/">Home</Link></li>
+                <li><Link to="/">Главная</Link></li>
               </div>
               <div className="person">
-                <li><Link to="/">Hi, guest</Link></li>
+                <li><Link to="/">Привет, гость</Link></li>
               </div>
             </div>
 
@@ -49,10 +49,10 @@ export default function NavBar() {
           : (
             <div className="info">
               <div className="home">
-                <li><Link to="/">Home</Link></li>
+                <li><Link to="/">Главная</Link></li>
               </div>
               <div className="person">
-                <li><Link to="/">{`Hi, ${user.login}`}</Link></li>
+                <li><Link to="/">{`Привет, ${user.login}`}</Link></li>
               </div>
             </div>
           )}
