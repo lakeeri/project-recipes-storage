@@ -25,20 +25,20 @@ export default function Registration() {
         <form className="center" onSubmit={(e) => handleRegistration(e, Object.fromEntries(new FormData(e.target)))}>
           <div className="main-user-info">
             <div className="user-input-box">
-              <label htmlFor="login">Your name</label>
-              <input id="login" type="text" placeholder="Enter name" name="login" />
+              <label htmlFor="login">Имя</label>
+              <input id="login" type="text" placeholder="введите имя" name="login" />
             </div>
             <div className="user-input-box">
-              <label htmlFor="email">Email address</label>
-              <input id="email" type="email" placeholder="Enter email" name="email" />
+              <label htmlFor="email">Электронная почта</label>
+              <input id="email" type="email" placeholder="введите email" name="email" />
             </div>
             <div className="user-input-box">
-              <label htmlFor="password">Password</label>
-              <input id="password" type="password" placeholder="Password" name="password" />
+              <label htmlFor="password">Пароль</label>
+              <input id="password" type="password" placeholder="введите пароль" name="password" />
             </div>
           </div>
           <div className="container-button">
-            <button className="form-submit-btn" type="submit">Submit</button>
+            <button className="form-submit-btn" type="submit">Подтвердить</button>
           </div>
         </form>
       </div>

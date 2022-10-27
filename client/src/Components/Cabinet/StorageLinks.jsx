@@ -33,7 +33,7 @@ export default function CabinetLinks() {
             </div>
             <div className="content">
               <h2>
-                Избранные
+                Избранное
               </h2>
             </div>
           </Link>
