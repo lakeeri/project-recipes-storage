@@ -26,16 +26,16 @@ export default function LogIn() {
         <form className="center" onSubmit={(e) => loginHandler(e, Object.fromEntries(new FormData(e.target)))}>
           <div className="main-user-info">
             <div className="user-input-box">
-              <label htmlFor="email">Email address</label>
-              <input id="email" type="email" placeholder="Enter email" name="email" />
+              <label htmlFor="email">Электронная почта</label>
+              <input id="email" type="email" placeholder="Ваш email" name="email" />
             </div>
             <div className="user-input-box">
-              <label htmlFor="password">Password</label>
-              <input id="password" type="password" placeholder="Password" name="password" />
+              <label htmlFor="password">Пароль</label>
+              <input id="password" type="password" placeholder="пароль" name="password" />
             </div>
           </div>
           <div className="container-button">
-            <button className="form-submit-btn" type="submit">Submit</button>
+            <button className="form-submit-btn" type="submit">Подтвердить</button>
           </div>
         </form>
       </div>
