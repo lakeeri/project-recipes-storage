@@ -6,7 +6,7 @@ const { Storage, ShoppingList } = require('../db/models');
 
 router.get('/', async (req, res) => {
   try {
-    const products = await Storage.findAll({ where: { userid: res.locals.user.id, weight: { [Op.ne]: 0 } }, order: [['id', 'DESC']] });
+    const products = await Storage.findAll({ where: { userid: res.locals.user.id, weight: { [Op.gt]: 0 } }, order: [['id', 'DESC']] });
     return res.json(products);
   } catch (e) {
     console.log(e);
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
       await Storage.update({ weight: parseInt(weight, 10) + newProduct.weight }, { where: { name, userid: res.locals.user.id } });
     }
   }
-  const products = await Storage.findAll({ where: { userid: res.locals.user.id, weight: { [Op.ne]: 0 } }, order: [['id', 'ASC']] });
+  const products = await Storage.findAll({ where: { userid: res.locals.user.id, weight: { [Op.gt]: 0 } }, order: [['id', 'ASC']] });
   return res.json(products);
 });
 
@@ -53,7 +53,7 @@ router.post('/list', async (req, res) => {
       }
     }
   });
-  const products = await Storage.findAll({ where: { userid: res.locals.user.id, weight: { [Op.ne]: 0 } } });
+  const products = await Storage.findAll({ where: { userid: res.locals.user.id, weight: { [Op.gt]: 0 } } });
   res.json(products);
 });
 
@@ -76,7 +76,7 @@ router.post('/list/delete/cooked', async (req, res) => {
       weight: -weight,
     }, { where: { name, userid: res.locals.user.id } });
   });
-  const products = await Storage.findAll({ where: { userid: res.locals.user.id, weight: { [Op.ne]: 0 } }, order: [['id', 'DESC']] });
+  const products = await Storage.findAll({ where: { userid: res.locals.user.id, weight: { [Op.gt]: 0 } }, order: [['id', 'DESC']] });
   res.json(products);
 });
 

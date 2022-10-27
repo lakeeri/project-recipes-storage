@@ -48,25 +48,5 @@ router.route('/')
     );
     res.json(pends);
   });
-// .put(async (req, res) => {
-//   const { id } = req.body;
-//   const fav = await Favourite.findOne({
-//     where: { recipeId: id, userid: res.locals.user.id },
-//   });
-//   console.log(fav);
-//   await Favourite.update(
-//     { pending: !fav.pending },
-//     {
-//       where: { recipeId: id, userid: res.locals.user.id },
-//     },
-//   );
-//   const favs = await Favourite.findAll(
-//     {
-//       where: { userid: res.locals.user.id },
-//       include: { model: Recipe, include: { model: Ingredient } },
-//     },
-//   );
-//   res.json(favs);
-// });
 
 module.exports = router;

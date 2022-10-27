@@ -4,13 +4,10 @@
     scroll-snap-type: y mandatory;
     scroll-behavior:smooth;
     max-width: 89%;
-    // overflow: hidden;
   }
   
   .one-gallery__img {
     scroll-snap-align: start;
-    // margin-bottom: -50px;
-    // min-height: 70vh;
     border-radius: 15px;
     min-height: 300px;
     min-width: 450px;
@@ -22,18 +19,7 @@
 
   .one-recipe-box{
     position:relative;
-    // background: rgb(255, 255, 255);
-    // background-color: inherit;
-    // p{
-    //   position: absolute;
-    //   top:0.5em;
-    //   left:1em;
-    //   color:white;
-    //   font-size: 45px;
-    //   font-family: 'EB Garamond', serif;
-    //   opacity: 0.9;
-    //   }
-     
+    
      img{
         opacity: 1;
       }
@@ -41,8 +27,6 @@
   }
   .cooked-box{
     position:absolute;
-    // display: flex;
-    // justify-content: space-between;
     top: 1em;
     left: 2em;
     color:white;
@@ -57,16 +41,8 @@
     opacity: 0.9;
   }
   .cooked-done{
-    // position: absolute;
-    // top:0.5em;
-    // left:1em;
     color:white;
     font-size: 30px;
     font-family: 'EB Garamond', serif;
     opacity: 0.9;
   }
-  // .cooked-icon{
-  //   // position: absolute;
-  //   top:0.5em;
-  //   left:1em;
-  // }

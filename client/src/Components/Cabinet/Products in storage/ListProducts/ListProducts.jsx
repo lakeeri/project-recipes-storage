@@ -8,7 +8,12 @@ export default function ListProducts({ product }) {
   const dispatch = useDispatch();
   return (
     <div className="list-of-products">
-      <FiXSquare className="x-button" onClick={() => dispatch(deleteProducts(product.id))} />
+      <FiXSquare
+        className="x-button"
+        onClick={() => {
+          dispatch(deleteProducts(product.id));
+        }}
+      />
       {' '}
       {`${product.name} ${product.weight} ${product.unit}`}
     </div>

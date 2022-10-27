@@ -29,17 +29,13 @@ export default function OneFavoriteResipe({ item }) {
       {(
         pend.map((el) => el.recipeId).includes(item.Recipe.id)
           ? (
-            // <i className="fa-regular fa-square fa-2xl" onClick={(e) => modalHandler(e)} />
             <div className="cooked-box">
               <p className="cooked-done">Готово</p>
               <i className="fa-regular fa-square fa-2xl cooked-icon" onClick={() => cookedHandler()} />
             </div>
           )
           : (
-            {/* <i
-              className="fa-regular fa-heart fa-2xl"
-              onClick={() => dispatch(addFavoriteProducts(item.recipeId))}
-            /> */}
+            {}
           )
       )}
     </div>

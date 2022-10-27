@@ -11,7 +11,7 @@ import './onerecipe.css';
 import { getShoppingList } from '../../redux/slices/shoppingListSlice/shoppingListSlice';
 import { addPendingRecipes, deletePendingRecipes } from '../../redux/slices/pendingRecipeSlice/pendingRecipeSlice';
 import { deleteMiddle, getMiddle } from '../../redux/slices/middleSlice/middleSlice';
-import { addIngredientsSlice, getIngredientsSlice } from '../../redux/slices/ingredientsSlice/ingredientsSlice';
+import { changeVirtualStorage, getVirtualStorage } from '../../redux/slices/virtualStorageSlice/virtualStorageSlice';
 
 export default function OneRecipePage() {
   const textAnimation = {
@@ -43,13 +43,13 @@ export default function OneRecipePage() {
   const dispatch = useDispatch();
   const oneRecipe = useSelector((state) => state.oneRecipe);
   const user = useSelector((state) => state.user);
-  // const shoppingList = useSelector((state) => state.shoppingList);
   const pends = useSelector((state) => state.pending);
 
   useEffect(
     () => {
       dispatch(getOneRecipe(id));
       dispatch(getShoppingList());
+      dispatch(getVirtualStorage());
       dispatch(getMiddle());
     },
     [],
@@ -58,7 +58,6 @@ export default function OneRecipePage() {
   const modalHandler = (e) => {
     e.preventDefault();
     dispatch(setModal(oneRecipe));
-    dispatch(addIngredientsSlice(oneRecipe.Ingredients));
     dispatch(addPendingRecipes(id));
     setTrigger((prev) => !prev);
   };
@@ -66,6 +65,7 @@ export default function OneRecipePage() {
     e.preventDefault();
     dispatch(deleteMiddle(id));
     dispatch(deletePendingRecipes(id));
+    dispatch(changeVirtualStorage(oneRecipe.Ingredients));
   };
 
   return (
@@ -93,15 +93,11 @@ export default function OneRecipePage() {
              {pends.map((el) => el.recipeId).includes(Number(id))
                ? (<i className="fa-regular fa-square-check fa-2xl" onClick={(e) => deleteHandler(e)} />)
                : (<i className="fa-regular fa-square fa-2xl" onClick={(e) => modalHandler(e)} />)}
-             {/* <input type="checkbox" id="horns" name="horns" /> */}
            </motion.h5>
          </div>
        </motion.section>
        )}
         </div>
-        {/* <div
-        className="single-card__info"
-      /> */}
         <div className="single-card__header-info">
           <motion.h3 custom={1} variants={textAnimation} className="single-card__title">
             {oneRecipe.name}
