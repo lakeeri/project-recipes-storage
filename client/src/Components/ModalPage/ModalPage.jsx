@@ -4,40 +4,30 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { setModal } from '../../redux/slices/modalSlice/modalSlice';
 import './modalStyle.css';
+import { deleteVirtualProductsCooked } from '../../redux/slices/virtualStorageSlice/virtualStorageSlice';
 import { addShoppingList } from '../../redux/slices/shoppingListSlice/shoppingListSlice';
-import { deletePendingRecipes } from '../../redux/slices/pendingRecipeSlice/pendingRecipeSlice';
-import { addMiddle } from '../../redux/slices/middleSlice/middleSlice';
-import { addIngredientsSlice } from '../../redux/slices/ingredientsSlice/ingredientsSlice';
+import { deletePendingRecipes } from '../../redux/slices/pendingRecipeSlice/pendingRecipeSlice'; import { addMiddle } from '../../redux/slices/middleSlice/middleSlice';
 
 export default function ModalPage({ trigger }) {
   const [list, setList] = useState([]);
 
   const modal = useSelector((state) => state.modal);
-  const storage = useSelector((state) => state.storage);
-  // const middle = useSelector((state) => state.middle);
-  const oneRecipe = useSelector((state) => state.oneRecipe);
+  const virtualSorage = useSelector((state) => state.virtualSorage);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // const sum = middle?.filter((el) => el.name === 'Картофель').reduce((prev, curr) => prev + curr.weight, 0);
-    // console.log(sum);
     modal?.Ingredients
-      .forEach((mod) => !storage?.some((stor) => (mod.name.toLowerCase() === stor.name.toLowerCase()) && (mod.weight < stor.weight || mod.weight === stor.weight)) && setList((prev) => [...prev, {
+      .forEach((mod) => !virtualSorage?.some((stor) => (mod.name.toLowerCase() === stor.name.toLowerCase()) && (mod.weight < stor.weight || mod.weight === stor.weight)) && setList((prev) => [...prev, {
         ...mod,
-        // name: mod.name.toLowerCase(),
-        weight: storage.filter((el) => el.name.toLowerCase() === mod.name.toLowerCase())[0]
-          ? mod.weight - storage.filter((el) => el.name.toLowerCase() === mod.name.toLowerCase())[0].weight : mod.weight,
+        weight: virtualSorage.filter((el) => el.name.toLowerCase() === mod.name.toLowerCase())[0]
+          ? mod.weight - virtualSorage.filter((el) => el.name.toLowerCase() === mod.name.toLowerCase())[0].weight : mod.weight,
       }]));
   }, [trigger]);
 
-  // console.log(storage[0].weight);
-  // console.log(modal[0]?.weight?);
-
   const shoppingHandler = () => {
     dispatch(addShoppingList(list));
+    dispatch(deleteVirtualProductsCooked(modal?.Ingredients));
     dispatch(addMiddle(list));
-    console.log(oneRecipe.Ingredients);
-    dispatch(addIngredientsSlice(oneRecipe.Ingredients));
     dispatch(setModal(null));
     setList([]);
   };

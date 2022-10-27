@@ -24,7 +24,6 @@ router.route('/')
       });
     });
     const final = await Middle.findAll({ where: { userid: res.locals.user.id } });
-    console.log(final);
     res.json(final);
   })
   .delete(async (req, res) => {

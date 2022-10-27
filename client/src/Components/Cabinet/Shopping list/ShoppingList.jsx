@@ -6,6 +6,7 @@ import { getShoppingList } from '../../../redux/slices/shoppingListSlice/shoppin
 import ShoppingListItem from './ShoppingListItem';
 import { addProductsList, deleteProductsList } from '../../../redux/slices/storageSlice/storageSlice';
 import './shop.css';
+import { addVirtualProductsList } from '../../../redux/slices/virtualStorageSlice/virtualStorageSlice';
 
 export default function ShoppingList() {
   const shoppingList = useSelector((state) => state.shoppingList);
@@ -14,6 +15,7 @@ export default function ShoppingList() {
   const addHandler = (e, input) => {
     e.preventDefault();
     dispatch(addProductsList((input)));
+    dispatch(addVirtualProductsList((input)));
   };
 
   const clickHandler = (e) => {

@@ -50,7 +50,6 @@ export const deleteProducts = (id) => (dispatch) => {
 };
 
 export const deleteProductsCookedRecipes = (ingredients) => (dispatch) => {
-  console.log(ingredients);
   axios.post('/api/storage/list/delete/cooked', { ingredients })
     .then((res) => dispatch(setStorage(res.data)));
 };

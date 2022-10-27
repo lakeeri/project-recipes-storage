@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { addProducts } from '../../../../redux/slices/storageSlice/storageSlice';
 import { getOneProduct } from '../../../../redux/slices/oneProductSlice/oneProductSlice';
+import { addVirtualProducts } from '../../../../redux/slices/virtualStorageSlice/virtualStorageSlice';
 
 export default function AddProducts() {
   const user = useSelector((state) => state.user);
@@ -16,6 +17,9 @@ export default function AddProducts() {
   const addHandler = (e, input) => {
     e.preventDefault();
     dispatch(addProducts({
+      ...input, userid: user.id, name: oneProduct.name, unit: oneProduct.unit,
+    }));
+    dispatch(addVirtualProducts({
       ...input, userid: user.id, name: oneProduct.name, unit: oneProduct.unit,
     }));
   };

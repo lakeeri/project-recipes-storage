@@ -29,10 +29,8 @@ export const getMiddle = () => (dispatch) => {
 };
 
 export const addMiddle = (input) => (dispatch) => {
-//   console.log(input);
   axios.post('/api/middle', { input })
     .then((res) => dispatch(setMiddleSlice(res.data)));
-  // .then((res) => console.log(res.data));
 };
 
 export const deleteMiddle = (id) => (dispatch) => {

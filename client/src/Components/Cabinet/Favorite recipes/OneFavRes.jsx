@@ -23,17 +23,9 @@ export default function OneFavRes({ item }) {
         favs.map((el) => el.recipeId).includes(item.Recipe.id)
           ? (
             <AiFillHeart className="heart-fav" onClick={() => dispatch(deleteFavoriteProducts(item.recipeId))} />
-            /* <i
-              className="fa-solid fa-heart fa-2xl"
-              onClick={() => dispatch(deleteFavoriteProducts(item.recipeId))}
-            /> */
           )
           : (
-            {/* <AiOutlineHeart className="heart-fav" onClick={() => dispatch(addFavoriteProducts(item.recipeId))} /> */}
-            /* <i
-              className="fa-regular fa-heart fa-2xl"
-              onClick={() => dispatch(addFavoriteProducts(item.recipeId))}
-            /> */
+            {}
           )
       )}
     </div>
