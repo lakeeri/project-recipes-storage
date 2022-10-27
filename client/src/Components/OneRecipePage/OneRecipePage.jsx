@@ -114,11 +114,13 @@ export default function OneRecipePage() {
             мин.
             <motion.div variants={textAnimation} className="levels">
               Сложность:
-              Нормально
+              {' '}
+              {oneRecipe.complexity}
             </motion.div>
             <motion.div variants={textAnimation} className="amount">
               Кол-во порций:
-              5
+              {' '}
+              {oneRecipe.portions}
             </motion.div>
           </motion.div>
           <Ingredients />
